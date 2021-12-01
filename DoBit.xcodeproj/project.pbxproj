@@ -11,6 +11,8 @@
 		2561C14927577DF0006D5EF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561C14827577DF0006D5EF1 /* ContentView.swift */; };
 		2561C14B27577DF2006D5EF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2561C14A27577DF2006D5EF1 /* Assets.xcassets */; };
 		2561C14E27577DF2006D5EF1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2561C14D27577DF2006D5EF1 /* Preview Assets.xcassets */; };
+		2561C15627577E27006D5EF1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561C15527577E27006D5EF1 /* LoginView.swift */; };
+		2561C15927578118006D5EF1 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561C15827578118006D5EF1 /* Color+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		2561C14827577DF0006D5EF1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2561C14A27577DF2006D5EF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2561C14D27577DF2006D5EF1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2561C15527577E27006D5EF1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2561C15827578118006D5EF1 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,8 @@
 		2561C14527577DF0006D5EF1 /* DoBit */ = {
 			isa = PBXGroup;
 			children = (
+				2561C1572757810A006D5EF1 /* Configuration */,
+				2561C15427577E07006D5EF1 /* Login */,
 				2561C14627577DF0006D5EF1 /* DoBitApp.swift */,
 				2561C14827577DF0006D5EF1 /* ContentView.swift */,
 				2561C14A27577DF2006D5EF1 /* Assets.xcassets */,
@@ -65,6 +71,22 @@
 				2561C14D27577DF2006D5EF1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2561C15427577E07006D5EF1 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2561C15527577E27006D5EF1 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		2561C1572757810A006D5EF1 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				2561C15827578118006D5EF1 /* Color+Extension.swift */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +159,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2561C15627577E27006D5EF1 /* LoginView.swift in Sources */,
 				2561C14927577DF0006D5EF1 /* ContentView.swift in Sources */,
 				2561C14727577DF0006D5EF1 /* DoBitApp.swift in Sources */,
+				2561C15927578118006D5EF1 /* Color+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
