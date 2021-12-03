@@ -9,17 +9,36 @@ import SwiftUI
 
 struct LoginView: View {
     var body: some View {
-        VStack {
-            Spacer()
-                .frame(height: 181, alignment: .top)
-            LoginTitleView()
-            Spacer()
-                .frame(minHeight: 300, idealHeight: 336, maxHeight: 390, alignment: .top)
-            loginButtonView(buttonName: "회원가입")
-            loginButtonView(buttonName: "로그인")
-        }
-        .ignoresSafeArea()
+        NavigationView {
+            VStack {
+                Spacer()
+                    .frame(height: 181, alignment: .top)
+                LoginTitleView()
+                Spacer()
+                    .frame(minHeight: 300, idealHeight: 336, maxHeight: 390, alignment: .top)
+                Group {
+                    Divider()
+                        .frame(height: 1, alignment: .center)
+                        .background(Color.borderColor)
+                    NavigationLink(destination: RegistrationView()) {
+                        loginButtonView(buttonName: "회원가입")
+                            .contentShape(Rectangle())
+                    }
+                }
+                
+                Group {
+                    Divider()
+                        .frame(height: 1, alignment: .center)
+                        .background(Color.borderColor)
+                    NavigationLink(destination: RegistrationView()) {
+                        loginButtonView(buttonName: "로그인")
+                            .contentShape(Rectangle())
+                    }
+                }
+            }
+            .ignoresSafeArea()
         .background(Color.dobitBackgroundColor)
+        }
     }
 }
 
@@ -45,25 +64,30 @@ struct LoginTitleView: View {
 struct loginButtonView: View {
     
     var buttonName: String
+    let width = UIScreen.screenWidth
     
     var body: some View {
-        Divider()
-            .frame(height: 1, alignment: .center)
-            .background(Color.borderColor)
-        VStack {
-            Spacer()
-                .frame(minHeight: 9,
-                       maxHeight: 9,
-                       alignment: .top)
-            HStack {
+        Group {
+            VStack {
                 Spacer()
-                Text(buttonName)
-                Image("loginArrow")
-                Spacer()
-                    .frame(width: 20,
-                           alignment: .trailing)
+                    .frame(minHeight: 9,
+                           maxHeight: 9,
+                           alignment: .top)
+                HStack {
+                    Spacer()
+                    Text(buttonName)
+                        .frame(width: width - 40,
+                               height: 79,
+                               alignment: .topTrailing)
+                        .foregroundColor(Color.black)
+                    Image("loginArrow")
+                        .frame(height: 70, alignment: .top)
+                    Spacer()
+                        .frame(width: 20,
+                               alignment: .trailing)
+                }
+                
             }
-            .frame(height: 79, alignment: .top)
         }
     }
 }
