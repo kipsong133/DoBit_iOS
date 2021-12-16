@@ -10,34 +10,35 @@ import SwiftUI
 struct LoginView: View {
     var body: some View {
         NavigationView {
-            VStack {
-                Spacer()
-                    .frame(height: 181, alignment: .top)
-                LoginTitleView()
-                Spacer()
-                    .frame(minHeight: 300, idealHeight: 336, maxHeight: 390, alignment: .top)
-                Group {
-                    Divider()
-                        .frame(height: 1, alignment: .center)
-                        .background(Color.borderColor)
-                    NavigationLink(destination: RegistrationView()) {
-                        loginButtonView(buttonName: "회원가입")
-                            .contentShape(Rectangle())
+            ZStack {
+                Color.dobitBackgroundColor
+                    .edgesIgnoringSafeArea(.all)
+                VStack {
+                    LoginTitleView()
+                    Spacer()
+                        
+                    Group {
+                        Divider()
+                            .frame(height: 1, alignment: .center)
+                            .background(Color.borderColor)
+                        NavigationLink(destination: RegistrationView()) {
+                            loginButtonView(buttonName: "회원가입")
+                                .contentShape(Rectangle())
+                        }
                     }
-                }
-                
-                Group {
-                    Divider()
-                        .frame(height: 1, alignment: .center)
-                        .background(Color.borderColor)
-                    NavigationLink(destination: RegistrationView()) {
-                        loginButtonView(buttonName: "로그인")
-                            .contentShape(Rectangle())
+                    
+                    Group {
+                        Divider()
+                            .frame(height: 1, alignment: .center)
+                            .background(Color.borderColor)
+                        NavigationLink(destination: RegistrationView()) {
+                            loginButtonView(buttonName: "로그인")
+                                .contentShape(Rectangle())
+                        }
                     }
                 }
             }
-            .ignoresSafeArea()
-        .background(Color.dobitBackgroundColor)
+            .edgesIgnoringSafeArea(.bottom)
         }
     }
 }
