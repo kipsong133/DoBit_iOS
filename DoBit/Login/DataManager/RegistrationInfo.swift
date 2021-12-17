@@ -7,18 +7,15 @@
 
 import Foundation
 
-class RegistrationInfo {
-    static let shread = RegistrationInfo()
-    
+class RegistrationInfo: ObservableObject {
     var email: String = "DEFAULT"
     var password: String = "DEFAULT"
     var confirmPassword: String = "DEFAULT"
-    var nickname: String = "DEFAULT"
+    @Published var nickname: String = "DEFAULT"
     
     var isCorrectPassword: Bool {
         password == confirmPassword
     }
     
-    
-    private init() { }
+    init() { }
 }

@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    let registrationManager = RegistrationInfo.shread
+    @EnvironmentObject var userInfo: RegistrationInfo
     @State var email: String = ""
     @State var password: String = ""
     @State var rePassword: String = ""
     @State var nickname: String = ""
     
+    // check "다음" did tap
+    @State var pushView = false
+    
     let screenSize = UIScreen.main.bounds
     
     var body: some View {
-        NavigationView {
+        Group {
             
             ZStack {
                 Color.dobitBackgroundColor
@@ -25,9 +28,9 @@ struct RegistrationView: View {
                 
                 VStack {
                     RegistrationTextField(value: $email, title: "이메일")
-                    RegistrationTextField(value: $email, title: "비밀번호")
-                    RegistrationTextField(value: $email, title: "비밀번호 확인")
-                    RegistrationTextField(value: $email, title: "닉네임")
+                    RegistrationTextField(value: $password, title: "비밀번호")
+                    RegistrationTextField(value: $rePassword, title: "비밀번호 확인")
+                    RegistrationTextField(value: $nickname, title: "닉네임")
                     Spacer()
                     ProgressImageView(currentPrograssState: 1)
                     VStack {
@@ -49,28 +52,31 @@ struct RegistrationView: View {
                                 // Vertical borderline
                                 Color.black
                                     .frame(width: 1, height: 79, alignment: .center)
-                                    
-                                BottomButton(imageName: "rightArrow",
-                                             text: "다음",
-                                             isLeftSide: false,
-                                             action: {
-                                    // Pass the data to data manager
-                                    registrationManager.email = email
-                                    registrationManager.password = password
-                                    registrationManager.confirmPassword = rePassword
-                                    registrationManager.nickname = nickname
-                                })
+                                
+                                NavigationLink(destination: SetupIdentityView(), isActive: $pushView) {
+                                    BottomButton(imageName: "rightArrow",
+                                                 text: "다음",
+                                                 isLeftSide: false,
+                                                 action: {
+                                        // Pass the data to data manager
+                                        userInfo.email = email
+                                        userInfo.password = password
+                                        userInfo.confirmPassword = rePassword
+                                        userInfo.nickname = nickname
+                                        pushView = true
+                                    })
+                                }
+                                
                             }
                         }
                     }
 
                 }
-            }
+            }.navigationTitle("회원가입")
             .edgesIgnoringSafeArea(.bottom)
         }
         .navigationBarHidden(false)
         .navigationBarBackButtonHidden(true)
-        .navigationTitle("회원가입")
     }
     
     private func endEditing() {

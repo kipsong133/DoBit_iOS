@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
+    @StateObject var userInfo = RegistrationInfo()
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -40,6 +42,7 @@ struct LoginView: View {
             }
             .edgesIgnoringSafeArea(.bottom)
         }
+        .environmentObject(userInfo)
     }
 }
 
