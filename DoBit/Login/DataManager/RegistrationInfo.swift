@@ -7,6 +7,10 @@
 
 import Foundation
 
+/*
+ * Singleton X -> @publish 사용 12.18
+ * by Uno
+ */
 class RegistrationInfo: ObservableObject {
     var email: String = "DEFAULT"
     var password: String = "DEFAULT"
