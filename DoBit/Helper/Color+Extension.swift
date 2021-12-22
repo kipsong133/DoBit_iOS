@@ -12,6 +12,7 @@ extension Color {
     static let dobitBackgroundColor = Color("DoBitBackgroundColor")
     static let borderColor = Color("BorderColor")
     static let TextFieldBottomLineColor = Color("TextFieldBottomLineColor")
+    static let lightBackgroundColor = Color("LightBackgroundColor")
     
     init(hex: String) {
         let scanner = Scanner(string: hex)

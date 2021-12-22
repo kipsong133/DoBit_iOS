@@ -8,25 +8,42 @@
 import SwiftUI
 
 struct SetupIdentityView: View {
-    @EnvironmentObject var userInfo: RegistrationInfo
+    @EnvironmentObject var vm: RegistraionVM
     
     var body: some View {
-        VStack {
-            Text("Hello, World!")
+        ZStack {
+            Color.lightBackgroundColor
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                HStack {
+                    Text("어떤 사람이 되고 싶나요?")
+                        .padding(.leading, 20)
+                    Spacer()
+                }
+                
+                List(0..<20) { _ in
+                    IdentityCell(title: .constant("TEST"), isClicked: .constant(true))
+                        .listRowInsets(EdgeInsets())
+                }
+                .listStyle(.plain)
+
+                Spacer()
+                    .listRowInsets(EdgeInsets())
+            }
         }
         .navigationBarHidden(false)
         .navigationBarBackButtonHidden(true)
-        .navigationTitle("\(userInfo.nickname)")
+        .navigationTitle("\(vm.nickname ?? "Nickname")")
         
     }
 }
 
 struct SetupIdentityView_Previews: PreviewProvider {
     static var previews: some View {
-        
         NavigationView {
             SetupIdentityView()
-                .environmentObject(RegistrationInfo())
+                .environmentObject(RegistraionVM())
         }
     }
 }

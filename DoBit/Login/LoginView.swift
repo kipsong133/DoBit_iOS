@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject var userInfo = RegistrationInfo()
+    @StateObject var userInfo = RegistraionVM()
     
     var body: some View {
         NavigationView {

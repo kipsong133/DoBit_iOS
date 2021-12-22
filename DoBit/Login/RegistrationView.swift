@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    @EnvironmentObject var userInfo: RegistrationInfo
+    @EnvironmentObject var vm: RegistraionVM
     @State var email: String = ""
     @State var password: String = ""
     @State var rePassword: String = ""
     @State var nickname: String = ""
+    @Environment(\.presentationMode) var presentationMode
     
-    // check "다음" did tap
+    // Check "다음" did tap
     @State var pushView = false
     
     let screenSize = UIScreen.main.bounds
     
     var body: some View {
         Group {
-            
             ZStack {
                 Color.dobitBackgroundColor
                     .edgesIgnoringSafeArea(.all)
@@ -41,29 +41,38 @@ struct RegistrationView: View {
                                 .frame(width: screenSize.width, height: 1, alignment: .center)
                                 .padding(.bottom, 79)
                             
+                            /* Previous button */
                             HStack {
                                 BottomButton(imageName: "leftArrow",
                                              text: "이전",
                                              isLeftSide: true,
                                              action: {
-                                    print("DEBUG: Preivous button did tap...")
+                                    self.presentationMode.wrappedValue.dismiss()
                                 })
                                 
                                 // Vertical borderline
                                 Color.black
                                     .frame(width: 1, height: 79, alignment: .center)
                                 
+                                /* Next button */
                                 NavigationLink(destination: SetupIdentityView(), isActive: $pushView) {
                                     BottomButton(imageName: "rightArrow",
                                                  text: "다음",
                                                  isLeftSide: false,
                                                  action: {
                                         // Pass the data to data manager
-                                        userInfo.email = email
-                                        userInfo.password = password
-                                        userInfo.confirmPassword = rePassword
-                                        userInfo.nickname = nickname
-                                        pushView = true
+                                        vm.email = email
+                                        vm.password = password
+                                        vm.confirmPassword = rePassword
+                                        vm.nickname = nickname
+                                        
+                                        /* Invaildation */
+                                        if vm.showNextView {
+                                            pushView = true
+                                        } else {
+                                            /* Invaildate userInfo */
+                                        }
+                                        
                                     })
                                 }
                                 
@@ -86,7 +95,9 @@ struct RegistrationView: View {
 
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationView(email: "")
+        NavigationView {
+            RegistrationView(email: "")
+        }
     }
 }
 
@@ -125,21 +136,6 @@ struct RegistrationTextField: View {
                        alignment: .center)
                 .background(Color.TextFieldBottomLineColor)
         }
-    }
-}
-
-
-struct Background<Content: View>: View {
-    private var content: Content
-    
-    init(@ViewBuilder content: @escaping () -> Content) {
-        self.content = content()
-    }
-    
-    var body: some View {
-        Color.white
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-            .overlay(content)
     }
 }
 
