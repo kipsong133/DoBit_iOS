@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct IdentityCell: View {
-    @Binding var title: String
-    @Binding var isClicked: Bool
+    var title: String
+    @Binding var isChecked: Bool
     let screen = UIScreen.main.bounds
 
     var body: some View {
@@ -23,9 +23,14 @@ struct IdentityCell: View {
                         .padding(.leading, 20)
                         .padding(.bottom, 20)
                         .padding(.top, 5)
+                    
                     Spacer()
-                    Image(isClicked ? "capsule.fill" : "capsule.empty")
+                    Image(isChecked ? "capsule.fill" : "capsule.empty")
                         .padding(.trailing, 20)
+                        .onTapGesture {
+                            isChecked.toggle()
+                        }
+                    
                 }
                 
                 Color.borderColor
@@ -39,11 +44,20 @@ struct IdentityCell: View {
     }
 }
 
+struct IdentityTestView: View {
+    @State private var isChecked: Bool = false
+    
+    var body: some View {
+        IdentityCell(title: "아침형 인간", isChecked: $isChecked)
+    }
+}
+
 struct IdentityCell_Previews: PreviewProvider {
     static var previews: some View {
-        IdentityCell(
-            title: .constant("아침형 인간"),
-            isClicked: .constant(false))
+//        IdentityCell(
+//            title: "아침형 인간",
+//            isChecked: .constant(true))
+        IdentityTestView()
             .frame(width: UIScreen.main.bounds.width,
                    height: 44)
     }

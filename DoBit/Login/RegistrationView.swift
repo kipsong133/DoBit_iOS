@@ -55,7 +55,9 @@ struct RegistrationView: View {
                                     .frame(width: 1, height: 79, alignment: .center)
                                 
                                 /* Next button */
-                                NavigationLink(destination: SetupIdentityView(), isActive: $pushView) {
+                                NavigationLink(
+                                    destination: SetupIdentityView(),
+                                    isActive: $pushView) {
                                     BottomButton(imageName: "rightArrow",
                                                  text: "다음",
                                                  isLeftSide: false,

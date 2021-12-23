@@ -19,6 +19,7 @@
 		25843BF42772B46C007B160C /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25843BF32772B46C007B160C /* Background.swift */; };
 		259A2AA72772C096009828B2 /* IdentityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259A2AA62772C096009828B2 /* IdentityCell.swift */; };
 		259C5B1E275A1E07005E9288 /* UINavigationControllerDelegate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C5B1D275A1E07005E9288 /* UINavigationControllerDelegate+Extension.swift */; };
+		25D3F8422773FBDD00CAAD31 /* SetupIdentityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3F8412773FBDD00CAAD31 /* SetupIdentityVM.swift */; };
 		25E8EACC2772C92B009DF0B9 /* GlobalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E8EACB2772C92B009DF0B9 /* GlobalHelpers.swift */; };
 		25E8EACF2772C963009DF0B9 /* Identiy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E8EACE2772C963009DF0B9 /* Identiy.swift */; };
 		25F7F61D276C283D00FEE2AC /* SetupIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F7F61C276C283D00FEE2AC /* SetupIdentityView.swift */; };
@@ -39,6 +40,7 @@
 		25843BF32772B46C007B160C /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		259A2AA62772C096009828B2 /* IdentityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityCell.swift; sourceTree = "<group>"; };
 		259C5B1D275A1E07005E9288 /* UINavigationControllerDelegate+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationControllerDelegate+Extension.swift"; sourceTree = "<group>"; };
+		25D3F8412773FBDD00CAAD31 /* SetupIdentityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupIdentityVM.swift; sourceTree = "<group>"; };
 		25E8EACB2772C92B009DF0B9 /* GlobalHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHelpers.swift; sourceTree = "<group>"; };
 		25E8EACE2772C963009DF0B9 /* Identiy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identiy.swift; sourceTree = "<group>"; };
 		25F7F61C276C283D00FEE2AC /* SetupIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupIdentityView.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				2561C15527577E27006D5EF1 /* LoginView.swift */,
 				253FE4FD2758B5FB00050675 /* RegistrationView.swift */,
 				25F7F61C276C283D00FEE2AC /* SetupIdentityView.swift */,
+				25D3F8412773FBDD00CAAD31 /* SetupIdentityVM.swift */,
 				259A2AA62772C096009828B2 /* IdentityCell.swift */,
 			);
 			path = Login;
@@ -118,11 +121,11 @@
 		2561C1572757810A006D5EF1 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				25E8EACB2772C92B009DF0B9 /* GlobalHelpers.swift */,
 				2561C15827578118006D5EF1 /* Color+Extension.swift */,
 				253FE4FB2758B45000050675 /* Constant.swift */,
 				259C5B1D275A1E07005E9288 /* UINavigationControllerDelegate+Extension.swift */,
 				25FCE38B275DF613008E0D92 /* UIApplication+Extension.swift */,
-				25E8EACB2772C92B009DF0B9 /* GlobalHelpers.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2561C15627577E27006D5EF1 /* LoginView.swift in Sources */,
+				25D3F8422773FBDD00CAAD31 /* SetupIdentityVM.swift in Sources */,
 				259C5B1E275A1E07005E9288 /* UINavigationControllerDelegate+Extension.swift in Sources */,
 				25F7F61D276C283D00FEE2AC /* SetupIdentityView.swift in Sources */,
 				259A2AA72772C096009828B2 /* IdentityCell.swift in Sources */,

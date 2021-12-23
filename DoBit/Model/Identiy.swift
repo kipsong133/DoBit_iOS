@@ -8,7 +8,8 @@
 import Foundation
 import SwiftUI
 
-struct Identity: Identifiable {
+struct Identity: Identifiable,Hashable {
     var id = UUID().uuidString
     let name: String
+    var isChecked: Bool = false
 }
