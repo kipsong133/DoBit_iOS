@@ -48,7 +48,7 @@ struct IdentityTestView: View {
     @State private var isChecked: Bool = false
     
     var body: some View {
-        IdentityCell(title: "아침형 인간", isChecked: $isChecked)
+        IdentityCell(title: "계획적인 사람", isChecked: $isChecked)
     }
 }
 
