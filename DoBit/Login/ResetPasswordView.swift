@@ -1,5 +1,5 @@
 //
-//  LoginDetailView.swift
+//  ResetPasswordView.swift
 //  DoBit
 //
 //  Created by 김우성 on 2021/12/26.
@@ -7,35 +7,22 @@
 
 import SwiftUI
 
-struct LoginDetailView: View {
-    @Binding var shouldShowMainView: Bool
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @State private var emailErrorMessage: String = ""
-    @State private var passwordErrorMessage: String = ""
-    
-    @Environment(\.presentationMode) var presentationMode
-    
-    // Check "비밀번호 재설정" did tap
-    @State var pushView = false
-    
-    var isErrorInEmail: Bool {
-        emailErrorMessage.count > 2
-    }
-    
-    var isErrorInPassword: Bool {
-        passwordErrorMessage.count > 2
-    }
+struct ResetPasswordView: View {
+    @State private var email = String()
+    @State private var verificationCode = String()
+    @State private var emailErrorMessage = ""
+    @State private var codeErrorMessage = ""
     
     let screen = UIScreen.main.bounds
     
-    /* temp method */
-    func verifyAccount(email: String, password: String) -> Bool {
-        if email == "uno" && password == "1234" {
-            return true
-        } else {
-            return false
-        }
+    @Environment(\.presentationMode) var presentationMode
+    
+    private var isErrorInEmail: Bool {
+        email.count > 2
+    }
+    
+    private var isErrorInCode: Bool {
+        verificationCode.count > 2
     }
     
     var body: some View {
@@ -45,7 +32,7 @@ struct LoginDetailView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack() {
-                let borderwidth = CGFloat(screen.width - 72)
+                let borderwidth = CGFloat(screen.width - 40)
                 ZStack {
                     RegistrationTextField(value: $email, title: "이메일", borderWidth: borderwidth)
                         .padding(.bottom, 10)
@@ -56,31 +43,36 @@ struct LoginDetailView: View {
                 }
                 
                 ZStack {
-                    RegistrationTextField(value: $password, title: "비밀번호", borderWidth: borderwidth)
-                        .padding(.bottom, 10)
                     
-                    if isErrorInPassword {
-                        AlertMessageLoginInfoView(message: $passwordErrorMessage)
-                            .offset(y: 50)
-                    }
-                }
-                NavigationLink(
-                    destination: ResetPasswordView(),
-                    isActive: $pushView) {
+                    HStack {
+                        RegistrationTextField(value: $verificationCode, title: "인증번호", borderWidth: borderwidth / 2.25)
+                            .padding(.bottom, 10)
+                            
+//                            .frame(width: screen.width / 3)
+                        
                         Button(action: {
-                            pushView = true
+                            /* reset password action */
                         }, label: {
                             HStack {
                                 Spacer()
-                                Text("비밀번호 재설정")
+                                Text("인증번호 발송하기")
                                     .bold()
                                     .font(.system(size: 15))
                                     .padding(.trailing, 20)
                                     .padding(.top, 20)
                             }
                         })
-                    }.isDetailLink(false)
+                    }
+                    
+                    
+                    if isErrorInCode {
+                        AlertMessageLoginInfoView(message: $codeErrorMessage)
+                            .offset(y: 50)
+                    }
+                }
 
+                
+                
                 Spacer()
                 
                 ZStack {
@@ -105,19 +97,11 @@ struct LoginDetailView: View {
                         
                         BottomButton(
                             imageName: "rightArrow",
-                            text: "시작하기",
+                            text: "다음",
                             isLeftSide: false,
                             action: {
-                                /* verify email & password */
-                                if verifyAccount(email: email, password: password) {
-                                    shouldShowMainView = true
-                                } else {
-                                    /* show alert message */
-                                    emailErrorMessage = "이메일 주소를 확인해주세요."
-                                    passwordErrorMessage = "비밀번호를 확인해주세요."
-                                }
+                                // action
                             })
-                        
                     }
                 }
                 
@@ -127,14 +111,14 @@ struct LoginDetailView: View {
         }
         .edgesIgnoringSafeArea(.bottom)
         .navigationBarBackButtonHidden(true)
-        .navigationTitle("로그인")
+        .navigationTitle("비밀번호 재설정")
     }
 }
 
-struct LoginDetailView_Previews: PreviewProvider {
+struct ResetPasswordView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            LoginDetailView(shouldShowMainView: .constant(false))
+            ResetPasswordView()
         }
     }
 }

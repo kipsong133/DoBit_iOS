@@ -28,10 +28,12 @@ struct RegistrationView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack {
-                    RegistrationTextField(value: $email, title: "이메일")
-                    RegistrationTextField(value: $password, title: "비밀번호")
-                    RegistrationTextField(value: $rePassword, title: "비밀번호 확인")
-                    RegistrationTextField(value: $nickname, title: "닉네임")
+                    let borderwidth = CGFloat(screenSize.width - 40)
+                    
+                    RegistrationTextField(value: $email, title: "이메일", borderWidth: borderwidth)
+                    RegistrationTextField(value: $password, title: "비밀번호", borderWidth: borderwidth)
+                    RegistrationTextField(value: $rePassword, title: "비밀번호 확인", borderWidth: borderwidth)
+                    RegistrationTextField(value: $nickname, title: "닉네임", borderWidth: borderwidth)
                     Spacer()
                     ProgressImageView(currentPrograssState: 1)
                     VStack {
@@ -119,7 +121,7 @@ struct RegistrationTextField: View {
     
     @Binding var value: String
     var title: String
-    let borderWidth = UIScreen.screenWidth
+    var borderWidth: CGFloat
     
     var body: some View {
         VStack {
@@ -132,11 +134,11 @@ struct RegistrationTextField: View {
                 TextField(title, text: $value)
             }
             
-            Divider()
-                .frame(width: borderWidth - 42,
+            Color.TextFieldBottomLineColor
+                .frame(width: borderWidth,
                        height: 1,
-                       alignment: .center)
-                .background(Color.TextFieldBottomLineColor)
+                       alignment: .leading)
+            
         }
     }
 }
