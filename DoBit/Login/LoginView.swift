@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject var userInfo = RegistraionVM()
+    @State private var isActive: Bool = false
+    @Binding var shouldShowMainView: Bool
     
     var body: some View {
         NavigationView {
@@ -23,17 +25,22 @@ struct LoginView: View {
                         Divider()
                             .frame(height: 1, alignment: .center)
                             .background(Color.borderColor)
-                        NavigationLink(destination: RegistrationView()) {
+                        NavigationLink(
+                            destination: RegistrationView(rootIsActive: $isActive),
+                            isActive: $isActive) {
                             loginButtonView(buttonName: "회원가입")
                                 .contentShape(Rectangle())
                         }
+                            .isDetailLink(false)
                     }
                     
                     Group {
                         Divider()
                             .frame(height: 1, alignment: .center)
                             .background(Color.borderColor)
-                        NavigationLink(destination: RegistrationView()) {
+                        NavigationLink(
+                            destination: LoginDetailView(
+                                shouldShowMainView: $shouldShowMainView)) {
                             loginButtonView(buttonName: "로그인")
                                 .contentShape(Rectangle())
                         }
@@ -48,7 +55,7 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(shouldShowMainView: .constant(false))
     }
 }
 

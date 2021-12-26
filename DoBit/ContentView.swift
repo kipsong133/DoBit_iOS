@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var shouldShowMainView: Bool = false
+    
     var body: some View {
-        LoginView()
-//        FirstView()
+        if shouldShowMainView {
+            MainView()
+        } else {
+            LoginView(shouldShowMainView: $shouldShowMainView)
+        }
     }
 }
 

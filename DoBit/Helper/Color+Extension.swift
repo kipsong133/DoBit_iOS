@@ -13,6 +13,7 @@ extension Color {
     static let borderColor = Color("BorderColor")
     static let TextFieldBottomLineColor = Color("TextFieldBottomLineColor")
     static let lightBackgroundColor = Color("LightBackgroundColor")
+    static let alertRedColor = Color("AlertRedColor")
     
     init(hex: String) {
         let scanner = Scanner(string: hex)

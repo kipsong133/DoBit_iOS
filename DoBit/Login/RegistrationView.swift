@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RegistrationView: View {
     @EnvironmentObject var vm: RegistraionVM
+    @Binding var rootIsActive: Bool
     @State var email: String = ""
     @State var password: String = ""
     @State var rePassword: String = ""
@@ -56,7 +57,7 @@ struct RegistrationView: View {
                                 
                                 /* Next button */
                                 NavigationLink(
-                                    destination: SetupIdentityView(),
+                                    destination: SetupIdentityView(shouldPopToRootView: $rootIsActive),
                                     isActive: $pushView) {
                                     BottomButton(imageName: "rightArrow",
                                                  text: "다음",
@@ -74,9 +75,8 @@ struct RegistrationView: View {
                                         } else {
                                             /* Invaildate userInfo */
                                         }
-                                        
                                     })
-                                }
+                                    }.isDetailLink(false)
                                 
                             }
                         }
@@ -98,7 +98,7 @@ struct RegistrationView: View {
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            RegistrationView(email: "")
+            RegistrationView(rootIsActive: .constant(false), email: "")
         }
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SetupIdentityView: View {
     @EnvironmentObject var userInfo: RegistraionVM
-    
+    @Binding var shouldPopToRootView: Bool
     @State private var identities: [Identity] = allExampleIdentitys
     @State private var isCheckedIndex: [Bool] = Array(repeating: false, count: allExampleIdentitys.count)
     
@@ -118,22 +118,18 @@ struct SetupIdentityView: View {
                             .frame(width: 1, height: 79, alignment: .center)
                         
                         /* Next button */
-                        NavigationLink(
-                            destination: LoginView(),
-                            isActive: $pushView) {
-                            BottomButton(imageName: "rightArrow",
-                                         text: "다음",
-                                         isLeftSide: false,
-                                         action: {
-                                /* Invaildation */
-                                if userIsChecked {
-                                    userInfo.usersIdentities = getCheckedIdentities(isCheckedIndex)
-                                    pushView = true
-                                } else {
-                                    pushView = false
-                                }
-                            })
-                        }
+                        BottomButton(imageName: "rightArrow",
+                                     text: "다음",
+                                     isLeftSide: false,
+                                     action: {
+                            /* Invaildation */
+                            if userIsChecked {
+                                userInfo.usersIdentities = getCheckedIdentities(isCheckedIndex)
+                                shouldPopToRootView = false
+                            } else {
+                                shouldPopToRootView = true
+                            }
+                        })
                     }
                 }
             }
@@ -149,7 +145,7 @@ struct SetupIdentityView: View {
 struct SetupIdentityView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            SetupIdentityView()
+            SetupIdentityView(shouldPopToRootView: .constant(false))
                 .environmentObject(RegistraionVM())
         }
     }
