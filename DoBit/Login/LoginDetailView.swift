@@ -31,11 +31,12 @@ struct LoginDetailView: View {
     
     /* temp method */
     func verifyAccount(email: String, password: String) -> Bool {
-        if email == "uno" && password == "1234" {
-            return true
-        } else {
-            return false
-        }
+//        if email == "uno" && password == "1234" {
+//            return true
+//        } else {
+//            return false
+//        }
+        true
     }
     
     var body: some View {

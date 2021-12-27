@@ -12,4 +12,10 @@ struct Identity: Identifiable,Hashable {
     var id = UUID().uuidString
     let name: String
     var isChecked: Bool = false
+    
+    /*
+     var doList
+     var dontList
+     
+     */
 }

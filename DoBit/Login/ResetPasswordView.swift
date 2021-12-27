@@ -71,8 +71,6 @@ struct ResetPasswordView: View {
                     }
                 }
 
-                
-                
                 Spacer()
                 
                 ZStack {

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250E3A822779448D0069A488 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250E3A812779448D0069A488 /* MainCell.swift */; };
+		250E3A84277948080069A488 /* MainViweVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250E3A83277948080069A488 /* MainViweVM.swift */; };
+		250E3A8627795EF40069A488 /* TargetIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250E3A8527795EF40069A488 /* TargetIdentityView.swift */; };
 		252BB4E8276B76DB002D50A5 /* RegistraionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252BB4E7276B76DB002D50A5 /* RegistraionVM.swift */; };
 		253FE4FC2758B45000050675 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253FE4FB2758B45000050675 /* Constant.swift */; };
 		253FE4FE2758B5FB00050675 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253FE4FD2758B5FB00050675 /* RegistrationView.swift */; };
@@ -31,6 +34,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		250E3A812779448D0069A488 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
+		250E3A83277948080069A488 /* MainViweVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViweVM.swift; sourceTree = "<group>"; };
+		250E3A8527795EF40069A488 /* TargetIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetIdentityView.swift; sourceTree = "<group>"; };
 		252BB4E7276B76DB002D50A5 /* RegistraionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistraionVM.swift; sourceTree = "<group>"; };
 		253FE4FB2758B45000050675 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		253FE4FD2758B5FB00050675 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -78,6 +84,9 @@
 			isa = PBXGroup;
 			children = (
 				25499F4627781E1B006F8062 /* MainView.swift */,
+				250E3A8527795EF40069A488 /* TargetIdentityView.swift */,
+				250E3A83277948080069A488 /* MainViweVM.swift */,
+				250E3A812779448D0069A488 /* MainCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -127,10 +136,10 @@
 			children = (
 				252BB4E9276B7866002D50A5 /* DataManager */,
 				2561C15527577E27006D5EF1 /* LoginView.swift */,
+				25499F43277817BA006F8062 /* LoginDetailView.swift */,
 				253FE4FD2758B5FB00050675 /* RegistrationView.swift */,
 				25F7F61C276C283D00FEE2AC /* SetupIdentityView.swift */,
 				25D3F8412773FBDD00CAAD31 /* SetupIdentityVM.swift */,
-				25499F43277817BA006F8062 /* LoginDetailView.swift */,
 				25CEBD9327783066000C2D7C /* ResetPasswordView.swift */,
 				25499F4827781F4A006F8062 /* AlertMessageLoginInfoView.swift */,
 				259A2AA62772C096009828B2 /* IdentityCell.swift */,
@@ -239,6 +248,7 @@
 				2561C15627577E27006D5EF1 /* LoginView.swift in Sources */,
 				25D3F8422773FBDD00CAAD31 /* SetupIdentityVM.swift in Sources */,
 				259C5B1E275A1E07005E9288 /* UINavigationControllerDelegate+Extension.swift in Sources */,
+				250E3A84277948080069A488 /* MainViweVM.swift in Sources */,
 				25F7F61D276C283D00FEE2AC /* SetupIdentityView.swift in Sources */,
 				259A2AA72772C096009828B2 /* IdentityCell.swift in Sources */,
 				25FCE38C275DF613008E0D92 /* UIApplication+Extension.swift in Sources */,
@@ -250,11 +260,13 @@
 				25E8EACF2772C963009DF0B9 /* Identiy.swift in Sources */,
 				25499F4727781E1B006F8062 /* MainView.swift in Sources */,
 				252BB4E8276B76DB002D50A5 /* RegistraionVM.swift in Sources */,
+				250E3A822779448D0069A488 /* MainCell.swift in Sources */,
 				25CEBD9427783066000C2D7C /* ResetPasswordView.swift in Sources */,
 				25843BF42772B46C007B160C /* Background.swift in Sources */,
 				253FE4FE2758B5FB00050675 /* RegistrationView.swift in Sources */,
 				2561C14727577DF0006D5EF1 /* DoBitApp.swift in Sources */,
 				2561C15927578118006D5EF1 /* Color+Extension.swift in Sources */,
+				250E3A8627795EF40069A488 /* TargetIdentityView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

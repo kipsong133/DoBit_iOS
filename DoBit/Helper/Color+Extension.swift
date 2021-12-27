@@ -14,6 +14,7 @@ extension Color {
     static let TextFieldBottomLineColor = Color("TextFieldBottomLineColor")
     static let lightBackgroundColor = Color("LightBackgroundColor")
     static let alertRedColor = Color("AlertRedColor")
+    static let textGray = Color("TextGray")
     
     init(hex: String) {
         let scanner = Scanner(string: hex)

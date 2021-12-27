@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var shouldShowMainView: Bool = false
-    
+    @State private var popToMainView: Bool = false
     var body: some View {
         if shouldShowMainView {
-            MainView()
+            MainView(rootIsActive: $popToMainView)
         } else {
             LoginView(shouldShowMainView: $shouldShowMainView)
         }
