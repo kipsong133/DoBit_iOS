@@ -10,9 +10,9 @@ import SwiftUI
 
 struct Identity: Identifiable,Hashable {
     var id = UUID().uuidString
-    let name: String
+    var name: String
     var isChecked: Bool = false
-    
+    var color: Color = .dobitBackgroundColor
     /*
      var doList
      var dontList

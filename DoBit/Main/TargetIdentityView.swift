@@ -10,6 +10,10 @@ import SwiftUI
 struct TargetIdentityView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    @Binding var identity: Identity
+    
+    var colors = Color.dobitColors
+    
     let screen = UIScreen.main.bounds
     
     var btnBack : some View { Button(action: {
@@ -33,15 +37,23 @@ struct TargetIdentityView: View {
                 Color.black
                     .frame(width: screen.width, height: 1)
                 
-                /* First Row */
+                /* "정의" First Row */
                 Group {
                     HStack {
-                        Text("정의")
-                            .modifier(TargetIdentityTitleModifier())
+                        VStack {
+                            Text("정의")
+                                .modifier(TargetIdentityTitleModifier())
+                                .padding(.top, 5)
+                            
+                            Spacer()
+                        }
                         
-                        Text("아침형 인간")
-                            .padding(.leading, 15)
-                        
+                        VStack {
+                            TextField("정의", text: $identity.name)
+                                .padding(.top, 5)
+                                .padding(.leading, 17)
+                            Spacer()
+                        }
                         Spacer()
                     }
                     .frame(height: 50)
@@ -50,18 +62,59 @@ struct TargetIdentityView: View {
                         .frame(width: screen.width, height: 1)
                 }
                 
-                /* Second Row */
+                /* "Do" Second Row */
                 Group {
                     HStack {
-                        Text("Do")
-                            .modifier(TargetIdentityTitleModifier())
+                        VStack {
+                            Text("Do")
+                                .modifier(TargetIdentityTitleModifier())
+                                .padding(.top, 5)
+                            Spacer()
+                        }
                         
+                        Button(action: {
+                            // action
+                        }, label: {
+                            HStack {
+                                VStack {
+                                    Text("아침형 인간")
+                                        .padding(.top , 5)
+                                        .padding(.leading, 27)
+                                    Spacer()
+                                }
+                                Spacer()
+                            }
+                        })
+                        Spacer()
+                    }.frame(height: 50)
+                    
+                    Color.black
+                        .frame(width: screen.width, height: 1)
+                }
+                
+                /* "Don't" Thrid Row */
+                Group {
+                    HStack {
+                        VStack {
+                            Text("Don't")
+                                .modifier(TargetIdentityTitleModifier())
+                                .padding(.top, 5)
+                            Spacer()
+                        }
+
                         Button(action: {
                             
                         }, label: {
-                            Text("아침형 인간")
+                            HStack {
+                                VStack {
+                                    Text("아침형 인간")
+                                        .padding(.top , 5)
+                                        .padding(.leading, 10)
+                                    Spacer()
+                                }
+                                Spacer()
+                            }
                         })
-                        .padding(.leading, 15)
                         
                         Spacer()
                     }.frame(height: 50)
@@ -70,34 +123,28 @@ struct TargetIdentityView: View {
                         .frame(width: screen.width, height: 1)
                 }
                 
-                /* Thrid Row */
+                /* "Color" Fourth Row */
                 Group {
                     HStack {
-                        Text("Don't")
-                            .modifier(TargetIdentityTitleModifier())
+                        VStack {
+                            Text("Color")
+                                .modifier(TargetIdentityTitleModifier())
+                                .padding(.top , 5)
+                            Spacer()
+                        }
                         
-                        Button(action: {
-                            
-                        }, label: {
-                            Text("아침형 인간")
-                        })
-                        .padding(.leading, 15)
-                        
-                        Spacer()
-                    }.frame(height: 50)
-                    
-                    Color.black
-                        .frame(width: screen.width, height: 1)
-                }
-                
-                /* Fourth Row */
-                Group {
-                    HStack {
-                        Text("Color")
-                            .modifier(TargetIdentityTitleModifier())
-                        
-                        Text("색상들주르륵")
-                            .padding(.leading, 15)
+                        HStack(spacing: 15) {
+                            ForEach(colors, id: \.self) { color in
+                                Button(action: {
+                                    
+                                }, label: {
+                                    Image("capsule.template")
+                                        .resizable()
+                                        .frame(width: 16, height: 30)
+                                        .foregroundColor(color)
+                                })
+                            }
+                        }
                         
                         Spacer()
                     }.frame(height: 50)
@@ -133,7 +180,7 @@ struct TargetIdentityView: View {
 struct TargetIdentityView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            TargetIdentityView()
+            TargetIdentityView(identity: .constant(exampleIdentiy1))
         }
     }
 }
@@ -144,6 +191,6 @@ struct TargetIdentityTitleModifier: ViewModifier {
             .foregroundColor(.textGray)
             .font(.body)
             .padding(.leading, 20)
-            .padding(.bottom, 30)
+        
     }
 }

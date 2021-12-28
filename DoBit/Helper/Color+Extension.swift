@@ -16,6 +16,19 @@ extension Color {
     static let alertRedColor = Color("AlertRedColor")
     static let textGray = Color("TextGray")
     
+    /* Identity Colors */
+    static let dobitBeige = Color("DoBitBeige")
+    static let dobitBlack = Color("DoBitBlack")
+    static let dobitBlue = Color("DoBitBlue")
+    static let dobitGreen = Color("DoBitGreen")
+    static let dobitPink = Color("DoBitPink")
+    static let dobitPurple = Color("DoBitPurple")
+    static let dobitRed = Color("DoBitRed")
+    static let dobitSkyblue = Color("DoBitSkyblue")
+    static let dobitYellow = Color("DoBitYellow")
+    
+    static var dobitColors = [dobitBeige, dobitPink, dobitRed, dobitYellow, dobitGreen, dobitSkyblue, dobitBlue, dobitPurple, dobitBlack]
+    
     init(hex: String) {
         let scanner = Scanner(string: hex)
         _ = scanner.scanString("#")

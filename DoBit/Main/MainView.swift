@@ -34,13 +34,11 @@ struct MainView: View {
                                 NavigationLink(
                                     isActive: $rootIsActive,
                                     destination: {
-                                        TargetIdentityView()
+                                        TargetIdentityView(identity: $vm.identites[index])
                                     }, label: {
                                         MainCell(identity: $vm.identites[index])
                                             .frame(height: 81)
                                     })
-                                
-                                
                             }
                         }
                     }

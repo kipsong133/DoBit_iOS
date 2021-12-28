@@ -10,6 +10,8 @@
 		250E3A822779448D0069A488 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250E3A812779448D0069A488 /* MainCell.swift */; };
 		250E3A84277948080069A488 /* MainViweVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250E3A83277948080069A488 /* MainViweVM.swift */; };
 		250E3A8627795EF40069A488 /* TargetIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250E3A8527795EF40069A488 /* TargetIdentityView.swift */; };
+		250E3A8827798B1E0069A488 /* TargetIdentityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250E3A8727798B1E0069A488 /* TargetIdentityVM.swift */; };
+		250E3AAE277B26C70069A488 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250E3AAD277B26C70069A488 /* TabView.swift */; };
 		252BB4E8276B76DB002D50A5 /* RegistraionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252BB4E7276B76DB002D50A5 /* RegistraionVM.swift */; };
 		253FE4FC2758B45000050675 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253FE4FB2758B45000050675 /* Constant.swift */; };
 		253FE4FE2758B5FB00050675 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253FE4FD2758B5FB00050675 /* RegistrationView.swift */; };
@@ -37,6 +39,8 @@
 		250E3A812779448D0069A488 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		250E3A83277948080069A488 /* MainViweVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViweVM.swift; sourceTree = "<group>"; };
 		250E3A8527795EF40069A488 /* TargetIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetIdentityView.swift; sourceTree = "<group>"; };
+		250E3A8727798B1E0069A488 /* TargetIdentityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetIdentityVM.swift; sourceTree = "<group>"; };
+		250E3AAD277B26C70069A488 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		252BB4E7276B76DB002D50A5 /* RegistraionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistraionVM.swift; sourceTree = "<group>"; };
 		253FE4FB2758B45000050675 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		253FE4FD2758B5FB00050675 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -85,8 +89,10 @@
 			children = (
 				25499F4627781E1B006F8062 /* MainView.swift */,
 				250E3A8527795EF40069A488 /* TargetIdentityView.swift */,
+				250E3A8727798B1E0069A488 /* TargetIdentityVM.swift */,
 				250E3A83277948080069A488 /* MainViweVM.swift */,
 				250E3A812779448D0069A488 /* MainCell.swift */,
+				250E3AAD277B26C70069A488 /* TabView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -250,10 +256,12 @@
 				259C5B1E275A1E07005E9288 /* UINavigationControllerDelegate+Extension.swift in Sources */,
 				250E3A84277948080069A488 /* MainViweVM.swift in Sources */,
 				25F7F61D276C283D00FEE2AC /* SetupIdentityView.swift in Sources */,
+				250E3A8827798B1E0069A488 /* TargetIdentityVM.swift in Sources */,
 				259A2AA72772C096009828B2 /* IdentityCell.swift in Sources */,
 				25FCE38C275DF613008E0D92 /* UIApplication+Extension.swift in Sources */,
 				2561C14927577DF0006D5EF1 /* ContentView.swift in Sources */,
 				25499F44277817BA006F8062 /* LoginDetailView.swift in Sources */,
+				250E3AAE277B26C70069A488 /* TabView.swift in Sources */,
 				25E8EACC2772C92B009DF0B9 /* GlobalHelpers.swift in Sources */,
 				25499F4927781F4A006F8062 /* AlertMessageLoginInfoView.swift in Sources */,
 				253FE4FC2758B45000050675 /* Constant.swift in Sources */,
