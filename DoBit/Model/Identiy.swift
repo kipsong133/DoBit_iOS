@@ -13,9 +13,7 @@ struct Identity: Identifiable,Hashable {
     var name: String
     var isChecked: Bool = false
     var color: Color = .dobitBackgroundColor
-    /*
-     var doList
-     var dontList
-     
-     */
+    
+    var doList: [String]?
+    var dontList: [String]?
 }

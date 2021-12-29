@@ -12,6 +12,9 @@ struct MainView: View {
     @State private var nickname: String = "Uno"
     @Binding var rootIsActive: Bool
     
+    @State private var selectedIdentityIndex: Int? = nil
+    @State private var navigationViewIsActive: Bool = false
+    
     let screen = UIScreen.main.bounds
     
     var body: some View {
@@ -29,16 +32,26 @@ struct MainView: View {
                     
                     ScrollView(.vertical, showsIndicators: false) {
                         
-                        VStack(spacing: 0) {
+                        LazyVStack(spacing: 0) {
                             ForEach(vm.identites.indices, id: \.self) { index in
+                                
+                                
                                 NavigationLink(
-                                    isActive: $rootIsActive,
+                                    isActive: $navigationViewIsActive,
                                     destination: {
-                                        TargetIdentityView(identity: $vm.identites[index])
-                                    }, label: {
-                                        MainCell(identity: $vm.identites[index])
+                                        if selectedIdentityIndex != nil {
+                                            TargetIdentityView(identity: $vm.identites[selectedIdentityIndex!])
+                                        }
+                                    },
+                                    label: {
+                                            MainCell(identity: $vm.identites[index])
                                             .frame(height: 81)
+                                            .onTapGesture {
+                                                selectedIdentityIndex = index
+                                                navigationViewIsActive = true
+                                            }
                                     })
+                                
                             }
                         }
                     }

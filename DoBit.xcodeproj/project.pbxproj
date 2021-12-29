@@ -21,6 +21,7 @@
 		254FB2DB277C08160001B63F /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254FB2DA277C08160001B63F /* ColorButton.swift */; };
 		254FB2DD277C11C00001B63F /* SelectedColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254FB2DC277C11C00001B63F /* SelectedColor.swift */; };
 		254FB2DF277C13C60001B63F /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254FB2DE277C13C60001B63F /* ColorPickerView.swift */; };
+		254FB2E1277C25C60001B63F /* DoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254FB2E0277C25C60001B63F /* DoView.swift */; };
 		2561C14727577DF0006D5EF1 /* DoBitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561C14627577DF0006D5EF1 /* DoBitApp.swift */; };
 		2561C14927577DF0006D5EF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561C14827577DF0006D5EF1 /* ContentView.swift */; };
 		2561C14B27577DF2006D5EF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2561C14A27577DF2006D5EF1 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		254FB2DA277C08160001B63F /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		254FB2DC277C11C00001B63F /* SelectedColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedColor.swift; sourceTree = "<group>"; };
 		254FB2DE277C13C60001B63F /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
+		254FB2E0277C25C60001B63F /* DoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoView.swift; sourceTree = "<group>"; };
 		2561C14327577DF0006D5EF1 /* DoBit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoBit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2561C14627577DF0006D5EF1 /* DoBitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoBitApp.swift; sourceTree = "<group>"; };
 		2561C14827577DF0006D5EF1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				254FB2DE277C13C60001B63F /* ColorPickerView.swift */,
 				250E3A8727798B1E0069A488 /* TargetIdentityVM.swift */,
 				250E3A83277948080069A488 /* MainViweVM.swift */,
+				254FB2E0277C25C60001B63F /* DoView.swift */,
 				250E3A812779448D0069A488 /* MainCell.swift */,
 				250E3AAD277B26C70069A488 /* TabView.swift */,
 			);
@@ -273,6 +276,7 @@
 				250E3AAE277B26C70069A488 /* TabView.swift in Sources */,
 				25E8EACC2772C92B009DF0B9 /* GlobalHelpers.swift in Sources */,
 				25499F4927781F4A006F8062 /* AlertMessageLoginInfoView.swift in Sources */,
+				254FB2E1277C25C60001B63F /* DoView.swift in Sources */,
 				253FE4FC2758B45000050675 /* Constant.swift in Sources */,
 				254FB2DF277C13C60001B63F /* ColorPickerView.swift in Sources */,
 				25E8EACF2772C963009DF0B9 /* Identiy.swift in Sources */,

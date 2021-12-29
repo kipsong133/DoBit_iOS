@@ -18,6 +18,8 @@ struct TargetIdentityView: View {
     
     let screen = UIScreen.main.bounds
     
+    @State var pushView = false
+    
     var btnBack : some View { Button(action: {
             self.presentationMode.wrappedValue.dismiss()
             }) {
@@ -41,90 +43,31 @@ struct TargetIdentityView: View {
                     .frame(width: screen.width, height: 1)
                 
                 /* "정의" First Row */
-                Group {
-                    HStack {
-                        VStack {
-                            Text("정의")
-                                .modifier(TargetIdentityTitleModifier())
-                                .padding(.top, 5)
-                            
-                            Spacer()
-                        }
-                        
-                        VStack {
-                            TextField("정의", text: $identity.name)
-                                .padding(.top, 5)
-                                .padding(.leading, 17)
-                            Spacer()
-                        }
-                        Spacer()
+                TargetIdentityCell(
+                    title: "정의",
+                    text: $identity.name).onAppear {
+                        print("DEBUG: Traget에서 value \(identity.name)")
                     }
-                    .frame(height: 50)
+                
+                
+                
+                NavigationLink(
+                    destination: DoView(),
+                    isActive: $pushView, label: {
+                        VStack {
+                            BehaviorCell(title: "Do",
+                                         behaviorName: identity.doList?.first ?? "", pushView: $pushView)
+                        }
+                    })
                     
-                    Color.black
-                        .frame(width: screen.width, height: 1)
-                }
                 
                 /* "Do" Second Row */
-                Group {
-                    HStack {
-                        VStack {
-                            Text("Do")
-                                .modifier(TargetIdentityTitleModifier())
-                                .padding(.top, 5)
-                            Spacer()
-                        }
-                        
-                        Button(action: {
-                            // action
-                        }, label: {
-                            HStack {
-                                VStack {
-                                    Text("아침형 인간")
-                                        .padding(.top , 5)
-                                        .padding(.leading, 27)
-                                    Spacer()
-                                }
-                                Spacer()
-                            }
-                        })
-                        Spacer()
-                    }.frame(height: 50)
-                    
-                    Color.black
-                        .frame(width: screen.width, height: 1)
-                }
+//                BehaviorCell(title: "Do",
+//                             behaviorName: identity.doList?.first ?? "")
                 
                 /* "Don't" Thrid Row */
-                Group {
-                    HStack {
-                        VStack {
-                            Text("Don't")
-                                .modifier(TargetIdentityTitleModifier())
-                                .padding(.top, 5)
-                            Spacer()
-                        }
-
-                        Button(action: {
-                            
-                        }, label: {
-                            HStack {
-                                VStack {
-                                    Text("아침형 인간")
-                                        .padding(.top , 5)
-                                        .padding(.leading, 10)
-                                    Spacer()
-                                }
-                                Spacer()
-                            }
-                        })
-                        
-                        Spacer()
-                    }.frame(height: 50)
-                    
-                    Color.black
-                        .frame(width: screen.width, height: 1)
-                }
+                BehaviorCell(title: "Don't",
+                             behaviorName: identity.dontList?.first ?? "", pushView: $pushView)
                 
                 /* "Color" Fourth Row */
                 ColorPickerView(
@@ -134,7 +77,7 @@ struct TargetIdentityView: View {
                 
                 /* Delete Button */
                 Button(action: {
-                    
+                    // Action
                 }, label: {
                     HStack {
                         Spacer()
@@ -159,6 +102,7 @@ struct TargetIdentityView: View {
         })
         .navigationTitle("목표 정체성")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -181,3 +125,83 @@ struct TargetIdentityTitleModifier: ViewModifier {
 }
 
 
+
+struct TargetIdentityCell: View {
+    var title: String
+    let screen = UIScreen.main.bounds
+    @Binding var text: String
+    
+    var body: some View {
+        Group {
+            HStack {
+                VStack {
+                    Text(title)
+                        .bold()
+                        .modifier(TargetIdentityTitleModifier())
+                        .padding(.top, 5)
+                    
+                    Spacer()
+                }
+                
+                VStack {
+                    TextField(title, text: $text)
+                        .font(.system(size: 20, weight: .medium))
+                        .padding(.top, 5)
+                        .padding(.leading, 17)
+                    Spacer()
+                }
+                Spacer()
+            }
+            .frame(height: 50)
+            
+            Color.black
+                .frame(width: screen.width, height: 1)
+        }
+    }
+}
+
+struct BehaviorCell: View {
+    let screen = UIScreen.main.bounds
+    let title: String
+    let behaviorName: String
+    @Binding var pushView: Bool
+    
+    var body: some View {
+        Group {
+            HStack {
+                VStack {
+                    Text(title)
+                        .modifier(TargetIdentityTitleModifier())
+                        .padding(.top, 5)
+                    Spacer()
+                }
+                
+                Button(action: {
+                    pushView = true
+                }, label: {
+                    HStack {
+                        VStack {
+                            Text(behaviorName)
+                                .font(.system(size: 20, weight: .medium))
+                                .padding(.top , 5)
+                                .padding(.leading, 27)
+                            Spacer()
+                        }
+                        Spacer()
+                        
+                        VStack {
+                            Image("rightArrow")
+                                .padding(.top , 5)
+                                .padding(.trailing, 20)
+                            Spacer()
+                        }
+                    }
+                })
+                Spacer()
+            }.frame(height: 50)
+            
+            Color.black
+                .frame(width: screen.width, height: 1)
+        }
+    }
+}
