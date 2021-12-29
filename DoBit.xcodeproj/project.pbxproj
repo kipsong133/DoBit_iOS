@@ -18,6 +18,7 @@
 		25499F44277817BA006F8062 /* LoginDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25499F43277817BA006F8062 /* LoginDetailView.swift */; };
 		25499F4727781E1B006F8062 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25499F4627781E1B006F8062 /* MainView.swift */; };
 		25499F4927781F4A006F8062 /* AlertMessageLoginInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25499F4827781F4A006F8062 /* AlertMessageLoginInfoView.swift */; };
+		254FB2DB277C08160001B63F /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254FB2DA277C08160001B63F /* ColorButton.swift */; };
 		2561C14727577DF0006D5EF1 /* DoBitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561C14627577DF0006D5EF1 /* DoBitApp.swift */; };
 		2561C14927577DF0006D5EF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561C14827577DF0006D5EF1 /* ContentView.swift */; };
 		2561C14B27577DF2006D5EF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2561C14A27577DF2006D5EF1 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		25499F43277817BA006F8062 /* LoginDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDetailView.swift; sourceTree = "<group>"; };
 		25499F4627781E1B006F8062 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		25499F4827781F4A006F8062 /* AlertMessageLoginInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessageLoginInfoView.swift; sourceTree = "<group>"; };
+		254FB2DA277C08160001B63F /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		2561C14327577DF0006D5EF1 /* DoBit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoBit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2561C14627577DF0006D5EF1 /* DoBitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoBitApp.swift; sourceTree = "<group>"; };
 		2561C14827577DF0006D5EF1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			children = (
 				25499F4627781E1B006F8062 /* MainView.swift */,
 				250E3A8527795EF40069A488 /* TargetIdentityView.swift */,
+				254FB2DA277C08160001B63F /* ColorButton.swift */,
 				250E3A8727798B1E0069A488 /* TargetIdentityVM.swift */,
 				250E3A83277948080069A488 /* MainViweVM.swift */,
 				250E3A812779448D0069A488 /* MainCell.swift */,
@@ -268,6 +271,7 @@
 				25E8EACF2772C963009DF0B9 /* Identiy.swift in Sources */,
 				25499F4727781E1B006F8062 /* MainView.swift in Sources */,
 				252BB4E8276B76DB002D50A5 /* RegistraionVM.swift in Sources */,
+				254FB2DB277C08160001B63F /* ColorButton.swift in Sources */,
 				250E3A822779448D0069A488 /* MainCell.swift in Sources */,
 				25CEBD9427783066000C2D7C /* ResetPasswordView.swift in Sources */,
 				25843BF42772B46C007B160C /* Background.swift in Sources */,

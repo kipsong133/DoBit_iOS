@@ -7,12 +7,26 @@
 
 import SwiftUI
 
+enum SelectedColor: Int {
+    case dobitBeige = 0
+    case dobitPink = 1
+    case dobitYellow = 2
+    case dobitGreen = 3
+    case dobitSkyblue = 4
+    case dobitBlue = 5
+    case dobitPurple = 6
+    case dobitBlack = 7
+}
+
+
 struct TargetIdentityView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @Binding var identity: Identity
+    @State var selectedColorIndex: Int = 8
     
     var colors = Color.dobitColors
+    @State private var isSelectedColors: [Bool] = Array<Bool>(repeating: false, count: Color.dobitColors.count)
     
     let screen = UIScreen.main.bounds
     
@@ -29,7 +43,8 @@ struct TargetIdentityView: View {
     
     
     var body: some View {
-        ZStack {
+
+        return ZStack {
             Color.dobitBackgroundColor
                 .edgesIgnoringSafeArea(.all)
             
@@ -134,17 +149,27 @@ struct TargetIdentityView: View {
                         }
                         
                         HStack(spacing: 15) {
-                            ForEach(colors, id: \.self) { color in
+                            ForEach(colors.indices, id: \.self) { index in
+                                let color = colors[index]
                                 Button(action: {
                                     
                                 }, label: {
-                                    Image("capsule.template")
-                                        .resizable()
-                                        .frame(width: 16, height: 30)
-                                        .foregroundColor(color)
+                                    ColorButton(
+                                        isSelected: $isSelectedColors[index],
+                                        color: color,
+                                        width: 22,
+                                        height: 35)
+                                        .onTapGesture {
+                                            // resetting isSelected Color
+                                            isSelectedColors = Array<Bool>(repeating: false, count: Color.dobitColors.count)
+                                            // change Image selected color
+                                            selectedColorIndex = index
+                                            isSelectedColors[index].toggle()
+                                        }
                                 })
                             }
                         }
+                        .padding(.leading, 15)
                         
                         Spacer()
                     }.frame(height: 50)
@@ -163,6 +188,7 @@ struct TargetIdentityView: View {
                 Spacer()
                 
             }
+            .foregroundColor(.black)
             .padding(.top, 35)
             
             
