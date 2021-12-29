@@ -7,18 +7,6 @@
 
 import SwiftUI
 
-enum SelectedColor: Int {
-    case dobitBeige = 0
-    case dobitPink = 1
-    case dobitYellow = 2
-    case dobitGreen = 3
-    case dobitSkyblue = 4
-    case dobitBlue = 5
-    case dobitPurple = 6
-    case dobitBlack = 7
-}
-
-
 struct TargetIdentityView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -139,50 +127,21 @@ struct TargetIdentityView: View {
                 }
                 
                 /* "Color" Fourth Row */
-                Group {
-                    HStack {
-                        VStack {
-                            Text("Color")
-                                .modifier(TargetIdentityTitleModifier())
-                                .padding(.top , 5)
-                            Spacer()
-                        }
-                        
-                        HStack(spacing: 15) {
-                            ForEach(colors.indices, id: \.self) { index in
-                                let color = colors[index]
-                                Button(action: {
-                                    
-                                }, label: {
-                                    ColorButton(
-                                        isSelected: $isSelectedColors[index],
-                                        color: color,
-                                        width: 22,
-                                        height: 35)
-                                        .onTapGesture {
-                                            // resetting isSelected Color
-                                            isSelectedColors = Array<Bool>(repeating: false, count: Color.dobitColors.count)
-                                            // change Image selected color
-                                            selectedColorIndex = index
-                                            isSelectedColors[index].toggle()
-                                        }
-                                })
-                            }
-                        }
-                        .padding(.leading, 15)
-                        
-                        Spacer()
-                    }.frame(height: 50)
-                    
-                    Color.black
-                        .frame(width: screen.width, height: 1)
-                }
+                ColorPickerView(
+                    colors: colors,
+                    isSelectedColors: $isSelectedColors,
+                    selectedColorIndex: $selectedColorIndex)
                 
                 /* Delete Button */
                 Button(action: {
                     
                 }, label: {
-                    Text("삭제하기")
+                    HStack {
+                        Spacer()
+                        Text("삭제하기")
+                            .padding(.trailing, 20)
+                            .padding(.top, 25)
+                    }
                 })
                 
                 Spacer()
@@ -220,3 +179,5 @@ struct TargetIdentityTitleModifier: ViewModifier {
         
     }
 }
+
+
