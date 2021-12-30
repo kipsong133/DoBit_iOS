@@ -34,8 +34,6 @@ struct MainView: View {
                         
                         LazyVStack(spacing: 0) {
                             ForEach(vm.identites.indices, id: \.self) { index in
-                                
-                                
                                 NavigationLink(
                                     isActive: $navigationViewIsActive,
                                     destination: {

@@ -9,7 +9,12 @@ import SwiftUI
 
 struct DoView: View {
     var body: some View {
-        Text("Do")
+        ZStack {
+            Color.dobitBackgroundColor
+                .edgesIgnoringSafeArea(.all)
+            
+            
+        }
     }
 }
 
