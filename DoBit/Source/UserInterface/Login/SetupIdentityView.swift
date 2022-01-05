@@ -49,7 +49,7 @@ struct SetupIdentityView: View {
                     LazyVStack {
                         ForEach(Array(zip(identities.indices, identities)), id: \.1) { index, identity in
                             IdentityCell(
-                                title: identity.name,
+                                title: identity.userIdentityName,
                                 isChecked: $isCheckedIndex[index])
                         }
                     }
@@ -71,10 +71,7 @@ struct SetupIdentityView: View {
                 VStack {
                     TextField("원하는 목표를 적어주세요", text: $newIdentity)
                         .onSubmit {
-                            identities.append(Identity(
-                                id: UUID().uuidString,
-                                name: newIdentity,
-                                isChecked: false))
+//                            identities.append()
                             
                             isCheckedIndex.append(true)
                         }

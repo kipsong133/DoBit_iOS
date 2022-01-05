@@ -10,10 +10,10 @@ import SwiftUI
 
 struct Identity: Identifiable,Hashable {
     var id = UUID().uuidString
-    var name: String
-    var isChecked: Bool = false
-    var color: Color = .dobitBackgroundColor
     
-    var doList: [String]?
-    var dontList: [String]?
+    let userIdentityIdx: Int
+    let userIdentityName: String
+    let userIdentityColorName: String
+    let doHabit: String
+    let doNotHabit: String
 }

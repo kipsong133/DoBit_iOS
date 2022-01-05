@@ -12,7 +12,8 @@ struct ContentView: View {
     @State private var popToMainView: Bool = false
     var body: some View {
         if shouldShowMainView {
-            MainView(rootIsActive: $popToMainView)
+            MainView(mainViewVM: MainViewVM(),
+                     rootIsActive: $popToMainView)
         } else {
             LoginView(shouldShowMainView: $shouldShowMainView)
         }
