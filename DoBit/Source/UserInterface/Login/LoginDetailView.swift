@@ -46,7 +46,8 @@ struct LoginDetailView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack() {
-                let borderwidth = CGFloat(screen.width - 72)
+                let borderwidth = CGFloat(screen.width - 40)
+                
                 ZStack {
                     RegistrationTextField(value: $email, title: "이메일", borderWidth: borderwidth)
                         .padding(.bottom, 10)
