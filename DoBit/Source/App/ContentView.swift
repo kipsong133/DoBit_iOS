@@ -10,13 +10,23 @@ import SwiftUI
 struct ContentView: View {
     @State private var shouldShowMainView: Bool = false
     @State private var popToMainView: Bool = false
+     
     var body: some View {
         if shouldShowMainView {
-            MainView(vm: MainViewVM(),
-                     rootIsActive: $popToMainView)
+            MainTab()
+                .onAppear {
+                    configureAppearance()
+                }
+//            MainView(vm: MainViewVM())
         } else {
             LoginView(shouldShowMainView: $shouldShowMainView)
         }
+    }
+    
+    private func configureAppearance() {
+        UITabBar.appearance().isTranslucent = true
+        UITabBar.appearance().backgroundColor = UIColor(
+            red: 209/255, green: 209/255, blue: 209/255, alpha: 1)
     }
 }
 

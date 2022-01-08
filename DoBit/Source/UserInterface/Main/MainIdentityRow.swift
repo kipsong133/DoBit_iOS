@@ -67,6 +67,7 @@ struct MainIdentityRow: View {
                 }
             }
         }
+        .background(Color.dobitBackgroundColor)
         .frame(width: UIScreen.main.bounds.width, height: 81)
     }
 }

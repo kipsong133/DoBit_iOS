@@ -42,7 +42,7 @@ struct LoginDetailView: View {
     var body: some View {
         ZStack {
             /* Background color */
-            Color.lightBackgroundColor
+            Color.dobitBackgroundColor
                 .edgesIgnoringSafeArea(.all)
             
             VStack() {

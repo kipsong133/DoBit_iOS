@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		250E3AAE277B26C70069A488 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250E3AAD277B26C70069A488 /* TabView.swift */; };
 		252BB4E8276B76DB002D50A5 /* RegistraionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252BB4E7276B76DB002D50A5 /* RegistraionVM.swift */; };
 		253FE4FC2758B45000050675 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253FE4FB2758B45000050675 /* Constant.swift */; };
 		253FE4FE2758B5FB00050675 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253FE4FD2758B5FB00050675 /* RegistrationView.swift */; };
@@ -28,6 +27,7 @@
 		259A2AA72772C096009828B2 /* IdentityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259A2AA62772C096009828B2 /* IdentityCell.swift */; };
 		259C5B1E275A1E07005E9288 /* UINavigationControllerDelegate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C5B1D275A1E07005E9288 /* UINavigationControllerDelegate+Extension.swift */; };
 		25BEE11F278936D0008A3691 /* MainIdentityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEE11E278936D0008A3691 /* MainIdentityRow.swift */; };
+		25BEE121278947D7008A3691 /* MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEE120278947D7008A3691 /* MainTab.swift */; };
 		25CEBD9427783066000C2D7C /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CEBD9327783066000C2D7C /* ResetPasswordView.swift */; };
 		25D3F8422773FBDD00CAAD31 /* SetupIdentityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3F8412773FBDD00CAAD31 /* SetupIdentityVM.swift */; };
 		25E8EACC2772C92B009DF0B9 /* GlobalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E8EACB2772C92B009DF0B9 /* GlobalHelpers.swift */; };
@@ -37,7 +37,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		250E3AAD277B26C70069A488 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		252BB4E7276B76DB002D50A5 /* RegistraionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistraionVM.swift; sourceTree = "<group>"; };
 		253FE4FB2758B45000050675 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		253FE4FD2758B5FB00050675 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -59,6 +58,7 @@
 		259A2AA62772C096009828B2 /* IdentityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityCell.swift; sourceTree = "<group>"; };
 		259C5B1D275A1E07005E9288 /* UINavigationControllerDelegate+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationControllerDelegate+Extension.swift"; sourceTree = "<group>"; };
 		25BEE11E278936D0008A3691 /* MainIdentityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainIdentityRow.swift; sourceTree = "<group>"; };
+		25BEE120278947D7008A3691 /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
 		25CEBD9327783066000C2D7C /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		25D3F8412773FBDD00CAAD31 /* SetupIdentityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupIdentityVM.swift; sourceTree = "<group>"; };
 		25E8EACB2772C92B009DF0B9 /* GlobalHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHelpers.swift; sourceTree = "<group>"; };
@@ -89,9 +89,9 @@
 		25499F4527781E0A006F8062 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				250E3AAD277B26C70069A488 /* TabView.swift */,
 				25BEE11E278936D0008A3691 /* MainIdentityRow.swift */,
 				25499F4627781E1B006F8062 /* MainView.swift */,
+				25BEE120278947D7008A3691 /* MainTab.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -316,12 +316,12 @@
 				25D3F8422773FBDD00CAAD31 /* SetupIdentityVM.swift in Sources */,
 				259C5B1E275A1E07005E9288 /* UINavigationControllerDelegate+Extension.swift in Sources */,
 				257F0CBF27853850003B18E6 /* CustomCell.swift in Sources */,
+				25BEE121278947D7008A3691 /* MainTab.swift in Sources */,
 				25F7F61D276C283D00FEE2AC /* SetupIdentityView.swift in Sources */,
 				259A2AA72772C096009828B2 /* IdentityCell.swift in Sources */,
 				25FCE38C275DF613008E0D92 /* UIApplication+Extension.swift in Sources */,
 				2561C14927577DF0006D5EF1 /* ContentView.swift in Sources */,
 				25499F44277817BA006F8062 /* LoginDetailView.swift in Sources */,
-				250E3AAE277B26C70069A488 /* TabView.swift in Sources */,
 				25E8EACC2772C92B009DF0B9 /* GlobalHelpers.swift in Sources */,
 				25499F4927781F4A006F8062 /* AlertMessageLoginInfoView.swift in Sources */,
 				253FE4FC2758B45000050675 /* Constant.swift in Sources */,

@@ -10,26 +10,24 @@ import SwiftUI
 struct MainView: View {
     let vm: MainViewVM
     @State private var nickname: String = "Uno"
-    @Binding var rootIsActive: Bool
     @State private var selectedIdentityIndex: Int? = nil
     @State private var navigationViewIsActive: Bool = false
     
     let screen = UIScreen.main.bounds
     
     var body: some View {
-        
         NavigationView {
             ZStack {
                 background
-                
                 /* List */
                 VStack(spacing: 0) {
                     blackBorder
                     identityList
-                        .frame(maxWidth: .infinity,
-                               maxHeight: screen.height * (2.0 / 3.0)) // tabbar height 고려
+                        .frame(
+                            maxWidth: .infinity,
+                            maxHeight: screen.height * (2.0 / 3.0))
                     Spacer()
-                        
+                    blackBorder
                 }
             }
             .navigationTitle(nickname)
@@ -39,8 +37,7 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(vm: MainViewVM(),
-                 rootIsActive: .constant(false))
+        MainView(vm: MainViewVM())
     }
 }
 
