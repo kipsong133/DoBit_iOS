@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    let mainViewVM: MainViewVM
+    let vm: MainViewVM
     @State private var nickname: String = "Uno"
     @Binding var rootIsActive: Bool
     @State private var selectedIdentityIndex: Int? = nil
@@ -26,7 +26,8 @@ struct MainView: View {
                 VStack(spacing: 0) {
                     blackBorder
                     identityList
-                    blackBorder
+                        .frame(maxWidth: .infinity,
+                               maxHeight: screen.height * (2.0 / 3.0)) // tabbar height 고려
                     Spacer()
                         
                 }
@@ -38,7 +39,7 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(mainViewVM: MainViewVM(),
+        MainView(vm: MainViewVM(),
                  rootIsActive: .constant(false))
     }
 }
@@ -56,6 +57,14 @@ fileprivate extension MainView {
     }
     
     var identityList: some View {
-        Text("asdf")
+        ScrollView(.vertical, showsIndicators: false) {
+            LazyVStack(spacing: 0) {
+                ForEach(Array(zip(vm.identities.indices, vm.identities)), id: \.0) { (index, identity) in
+                    MainIdentityRow(identity: identity,
+                                    isFirstRow: index == 0 ? true : nil,
+                                    isLastRow: index == vm.identities.count-1 ? true : nil)
+                }
+            }
+        }
     }
 }

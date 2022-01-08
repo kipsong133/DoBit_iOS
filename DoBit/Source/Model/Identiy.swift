@@ -10,7 +10,6 @@ import SwiftUI
 
 struct Identity: Identifiable,Hashable {
     var id = UUID().uuidString
-    
     let userIdentityIdx: Int
     let userIdentityName: String
     let userIdentityColorName: String

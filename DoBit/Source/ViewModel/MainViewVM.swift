@@ -8,5 +8,9 @@
 import Foundation
 
 class MainViewVM: ObservableObject {
+    @Published var identities: [Identity] = []
     
+    init() {
+        identities = allExampleIdentitys
+    }
 }
