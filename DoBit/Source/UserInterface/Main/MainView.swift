@@ -25,11 +25,24 @@ struct MainView: View {
                     identityList
                         .frame(
                             maxWidth: .infinity,
-                            maxHeight: screen.height * (2.0 / 3.0))
+                            maxHeight: screen.height - 50)
                     Spacer()
                     blackBorder
                 }
+                
+                VStack {
+                    Spacer()
+                    Button(action: {
+                        // action
+                    }, label: {
+                        addButtonImage
+                    })
+                        .foregroundColor(.dobitBlack)
+                }
+                .padding(.bottom, 50)
+                .padding(.trailing, 20)
             }
+            .foregroundColor(.dobitBlack)
             .navigationTitle(nickname)
         }
     } 
@@ -57,10 +70,36 @@ fileprivate extension MainView {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(spacing: 0) {
                 ForEach(Array(zip(vm.identities.indices, vm.identities)), id: \.0) { (index, identity) in
-                    MainIdentityRow(identity: identity,
-                                    isFirstRow: index == 0 ? true : nil,
-                                    isLastRow: index == vm.identities.count-1 ? true : nil)
+                    
+                    NavigationLink {
+                        UpdateIdentityView(identity: identity)
+                    } label: {
+                        MainIdentityRow(
+                            color: identity.color,
+                            identity: identity,
+                            isFirstRow: index == 0 ? true : nil,
+                            isLastRow: index == vm.identities.count-1 ? true : nil)
+                    }
+
                 }
+            }
+        }
+    }
+    
+    var backgroundImagePlusButton: some View {
+        Image("plusbuttonBackgroundImage")
+            .resizable()
+            .scaledToFit()
+            .frame(height: 65)
+    }
+    
+    var addButtonImage: some View {
+        HStack {
+            Spacer()
+            ZStack {
+                backgroundImagePlusButton
+            Image(systemName: "plus")
+                    .imageScale(.medium)
             }
         }
     }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainIdentityRow: View {
+    var color: Color
     var identity: Identity
     var isFirstRow: Bool?
     var isLastRow: Bool?
@@ -25,6 +26,7 @@ struct MainIdentityRow: View {
                 HStack {
                     Image("capsule.template")
                         .resizable()
+                        .foregroundColor(color)
                         .scaledToFit()
                         .frame(height: proxy.size.height * 0.7)
                         .padding(.leading, 20)
@@ -74,7 +76,7 @@ struct MainIdentityRow: View {
 
 struct MainIdentityRow_Previews: PreviewProvider {
     static var previews: some View {
-        MainIdentityRow(identity: exampleIdentiy1)
+        MainIdentityRow(color: .dobitYellow, identity: exampleIdentiy1)
             .previewLayout(.sizeThatFits)
     }
 }
