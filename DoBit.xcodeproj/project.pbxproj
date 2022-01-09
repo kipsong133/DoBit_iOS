@@ -38,6 +38,7 @@
 		25E8EACF2772C963009DF0B9 /* Identiy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E8EACE2772C963009DF0B9 /* Identiy.swift */; };
 		25F7F61D276C283D00FEE2AC /* SetupIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F7F61C276C283D00FEE2AC /* SetupIdentityView.swift */; };
 		25FCE38C275DF613008E0D92 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FCE38B275DF613008E0D92 /* UIApplication+Extension.swift */; };
+		8D69624ED8909B15DB281BF2 /* Pods_DoBit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25AE3A0C1351E7CFDF9D0EB6 /* Pods_DoBit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		25843BF32772B46C007B160C /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		259A2AA62772C096009828B2 /* IdentityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityCell.swift; sourceTree = "<group>"; };
 		259C5B1D275A1E07005E9288 /* UINavigationControllerDelegate+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationControllerDelegate+Extension.swift"; sourceTree = "<group>"; };
+		25AE3A0C1351E7CFDF9D0EB6 /* Pods_DoBit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoBit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		25BEE11E278936D0008A3691 /* MainIdentityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainIdentityRow.swift; sourceTree = "<group>"; };
 		25BEE120278947D7008A3691 /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
 		25BEE13C278968F4008A3691 /* UpdateIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateIdentityView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,8 @@
 		25E8EACE2772C963009DF0B9 /* Identiy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identiy.swift; sourceTree = "<group>"; };
 		25F7F61C276C283D00FEE2AC /* SetupIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupIdentityView.swift; sourceTree = "<group>"; };
 		25FCE38B275DF613008E0D92 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		8443BB36EBAC78023AF6849C /* Pods-DoBit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoBit.release.xcconfig"; path = "Target Support Files/Pods-DoBit/Pods-DoBit.release.xcconfig"; sourceTree = "<group>"; };
+		BF86E5EA31B7BD12A1FC0898 /* Pods-DoBit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoBit.debug.xcconfig"; path = "Target Support Files/Pods-DoBit/Pods-DoBit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D69624ED8909B15DB281BF2 /* Pods_DoBit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,8 @@
 			children = (
 				2561C14527577DF0006D5EF1 /* DoBit */,
 				2561C14427577DF0006D5EF1 /* Products */,
+				D274B9F301260D045B6D2C4C /* Pods */,
+				43B232ED387089F8C6490F13 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -253,6 +260,24 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		43B232ED387089F8C6490F13 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				25AE3A0C1351E7CFDF9D0EB6 /* Pods_DoBit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D274B9F301260D045B6D2C4C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BF86E5EA31B7BD12A1FC0898 /* Pods-DoBit.debug.xcconfig */,
+				8443BB36EBAC78023AF6849C /* Pods-DoBit.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -260,9 +285,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2561C15127577DF2006D5EF1 /* Build configuration list for PBXNativeTarget "DoBit" */;
 			buildPhases = (
+				FC168D8BBD779814CDDFA80A /* [CP] Check Pods Manifest.lock */,
 				2561C13F27577DF0006D5EF1 /* Sources */,
 				2561C14027577DF0006D5EF1 /* Frameworks */,
 				2561C14127577DF0006D5EF1 /* Resources */,
+				653D9457837FA5E2158959E5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -318,6 +345,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		653D9457837FA5E2158959E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DoBit/Pods-DoBit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DoBit/Pods-DoBit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DoBit/Pods-DoBit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC168D8BBD779814CDDFA80A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DoBit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2561C13F27577DF0006D5EF1 /* Sources */ = {
@@ -476,6 +545,7 @@
 		};
 		2561C15227577DF2006D5EF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF86E5EA31B7BD12A1FC0898 /* Pods-DoBit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -506,6 +576,7 @@
 		};
 		2561C15327577DF2006D5EF1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8443BB36EBAC78023AF6849C /* Pods-DoBit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

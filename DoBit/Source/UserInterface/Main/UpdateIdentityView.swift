@@ -58,7 +58,7 @@ struct UpdateIdentityView: View {
                 Button(action: {
                     mode.wrappedValue.dismiss()
                 }) {
-                    Text("Back")
+                    Image("backButtonIcon")
                 }
             }
             
@@ -69,7 +69,11 @@ struct UpdateIdentityView: View {
             }
             
             ToolbarItem(placement: .navigationBarTrailing) {
-                Text("Check")
+                Button(action: {
+                    // check action
+                }) {
+                    Image("checkIcon")
+                }
             }
         }
     }
@@ -166,7 +170,7 @@ fileprivate extension UpdateIdentityView {
                             if index == selectedColorIndex {
                                 Image("CapsuleBorderImage")
                                     .resizable()
-                                    .scaledToFit()        
+                                    .scaledToFit()
                             }
                             
                             
