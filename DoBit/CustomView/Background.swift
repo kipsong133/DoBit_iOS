@@ -21,6 +21,7 @@ struct Background<Content: View>: View {
     }
 }
 
+
 //
 //struct BackGround_Previews: PreviewProvider {
 //    static var previews: some View {

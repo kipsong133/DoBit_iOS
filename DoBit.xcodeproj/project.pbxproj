@@ -14,6 +14,9 @@
 		25499F4727781E1B006F8062 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25499F4627781E1B006F8062 /* MainView.swift */; };
 		25499F4927781F4A006F8062 /* AlertMessageLoginInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25499F4827781F4A006F8062 /* AlertMessageLoginInfoView.swift */; };
 		254FB2DD277C11C00001B63F /* SelectedColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254FB2DC277C11C00001B63F /* SelectedColor.swift */; };
+		256085272789FFCE00CE5056 /* BorderlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256085262789FFCE00CE5056 /* BorderlineView.swift */; };
+		25608543278A9AA400CE5056 /* DoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25608542278A9AA400CE5056 /* DoView.swift */; };
+		25608545278A9AAC00CE5056 /* DontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25608544278A9AAC00CE5056 /* DontView.swift */; };
 		2561C14727577DF0006D5EF1 /* DoBitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561C14627577DF0006D5EF1 /* DoBitApp.swift */; };
 		2561C14927577DF0006D5EF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561C14827577DF0006D5EF1 /* ContentView.swift */; };
 		2561C14B27577DF2006D5EF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2561C14A27577DF2006D5EF1 /* Assets.xcassets */; };
@@ -45,6 +48,9 @@
 		25499F4627781E1B006F8062 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		25499F4827781F4A006F8062 /* AlertMessageLoginInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessageLoginInfoView.swift; sourceTree = "<group>"; };
 		254FB2DC277C11C00001B63F /* SelectedColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedColor.swift; sourceTree = "<group>"; };
+		256085262789FFCE00CE5056 /* BorderlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderlineView.swift; sourceTree = "<group>"; };
+		25608542278A9AA400CE5056 /* DoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoView.swift; sourceTree = "<group>"; };
+		25608544278A9AAC00CE5056 /* DontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DontView.swift; sourceTree = "<group>"; };
 		2561C14327577DF0006D5EF1 /* DoBit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoBit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2561C14627577DF0006D5EF1 /* DoBitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoBitApp.swift; sourceTree = "<group>"; };
 		2561C14827577DF0006D5EF1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,6 +101,8 @@
 				25499F4627781E1B006F8062 /* MainView.swift */,
 				25BEE120278947D7008A3691 /* MainTab.swift */,
 				25BEE13C278968F4008A3691 /* UpdateIdentityView.swift */,
+				25608542278A9AA400CE5056 /* DoView.swift */,
+				25608544278A9AAC00CE5056 /* DontView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -230,6 +238,7 @@
 			children = (
 				257F0CBE27853850003B18E6 /* CustomCell.swift */,
 				25843BF32772B46C007B160C /* Background.swift */,
+				256085262789FFCE00CE5056 /* BorderlineView.swift */,
 			);
 			name = CustomView;
 			path = ../../CustomView;
@@ -315,15 +324,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				256085272789FFCE00CE5056 /* BorderlineView.swift in Sources */,
 				2561C15627577E27006D5EF1 /* LoginView.swift in Sources */,
 				25D3F8422773FBDD00CAAD31 /* SetupIdentityVM.swift in Sources */,
 				259C5B1E275A1E07005E9288 /* UINavigationControllerDelegate+Extension.swift in Sources */,
 				257F0CBF27853850003B18E6 /* CustomCell.swift in Sources */,
+				25608545278A9AAC00CE5056 /* DontView.swift in Sources */,
 				25BEE121278947D7008A3691 /* MainTab.swift in Sources */,
 				25F7F61D276C283D00FEE2AC /* SetupIdentityView.swift in Sources */,
 				259A2AA72772C096009828B2 /* IdentityCell.swift in Sources */,
 				25FCE38C275DF613008E0D92 /* UIApplication+Extension.swift in Sources */,
 				2561C14927577DF0006D5EF1 /* ContentView.swift in Sources */,
+				25608543278A9AA400CE5056 /* DoView.swift in Sources */,
 				25499F44277817BA006F8062 /* LoginDetailView.swift in Sources */,
 				25E8EACC2772C92B009DF0B9 /* GlobalHelpers.swift in Sources */,
 				25499F4927781F4A006F8062 /* AlertMessageLoginInfoView.swift in Sources */,
