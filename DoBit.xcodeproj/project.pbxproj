@@ -34,6 +34,10 @@
 		25BEE121278947D7008A3691 /* MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEE120278947D7008A3691 /* MainTab.swift */; };
 		25BEE13D278968F4008A3691 /* UpdateIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEE13C278968F4008A3691 /* UpdateIdentityView.swift */; };
 		25CEBD9427783066000C2D7C /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CEBD9327783066000C2D7C /* ResetPasswordView.swift */; };
+		25D1515F278D130300972489 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D1515E278D130300972489 /* LoginRequest.swift */; };
+		25D15161278D134000972489 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D15160278D134000972489 /* LoginRouter.swift */; };
+		25D15163278D13CC00972489 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D15162278D13CC00972489 /* LoginResponse.swift */; };
+		25D15165278D33D800972489 /* LoginDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D15164278D33D800972489 /* LoginDetailViewModel.swift */; };
 		25D3F8422773FBDD00CAAD31 /* SetupIdentityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3F8412773FBDD00CAAD31 /* SetupIdentityVM.swift */; };
 		25E8EACC2772C92B009DF0B9 /* GlobalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E8EACB2772C92B009DF0B9 /* GlobalHelpers.swift */; };
 		25E8EACF2772C963009DF0B9 /* Identiy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E8EACE2772C963009DF0B9 /* Identiy.swift */; };
@@ -72,6 +76,10 @@
 		25BEE120278947D7008A3691 /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
 		25BEE13C278968F4008A3691 /* UpdateIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateIdentityView.swift; sourceTree = "<group>"; };
 		25CEBD9327783066000C2D7C /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		25D1515E278D130300972489 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		25D15160278D134000972489 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		25D15162278D13CC00972489 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		25D15164278D33D800972489 /* LoginDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDetailViewModel.swift; sourceTree = "<group>"; };
 		25D3F8412773FBDD00CAAD31 /* SetupIdentityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupIdentityVM.swift; sourceTree = "<group>"; };
 		25E8EACB2772C92B009DF0B9 /* GlobalHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHelpers.swift; sourceTree = "<group>"; };
 		25E8EACE2772C963009DF0B9 /* Identiy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identiy.swift; sourceTree = "<group>"; };
@@ -157,6 +165,7 @@
 				252BB4E9276B7866002D50A5 /* DataManager */,
 				2561C15527577E27006D5EF1 /* LoginView.swift */,
 				25499F43277817BA006F8062 /* LoginDetailView.swift */,
+				25D15164278D33D800972489 /* LoginDetailViewModel.swift */,
 				253FE4FD2758B5FB00050675 /* RegistrationView.swift */,
 				25F7F61C276C283D00FEE2AC /* SetupIdentityView.swift */,
 				25D3F8412773FBDD00CAAD31 /* SetupIdentityVM.swift */,
@@ -178,6 +187,7 @@
 		257F0CC127853EAA003B18E6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				25D1515B278D12DC00972489 /* Repository */,
 				25BEE11B27892B1B008A3691 /* App */,
 				257F0CC527853EDF003B18E6 /* UserInterface */,
 				257F0CCA27853F9D003B18E6 /* ViewModel */,
@@ -261,6 +271,32 @@
 				2561C14827577DF0006D5EF1 /* ContentView.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		25D1515B278D12DC00972489 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				25D1515C278D12E700972489 /* Authentication */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		25D1515C278D12E700972489 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				25D1515D278D12EE00972489 /* Login */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		25D1515D278D12EE00972489 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				25D1515E278D130300972489 /* LoginRequest.swift */,
+				25D15162278D13CC00972489 /* LoginResponse.swift */,
+				25D15160278D134000972489 /* LoginRouter.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		43B232ED387089F8C6490F13 /* Frameworks */ = {
@@ -395,9 +431,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25D15161278D134000972489 /* LoginRouter.swift in Sources */,
 				256085272789FFCE00CE5056 /* BorderlineView.swift in Sources */,
 				2561C15627577E27006D5EF1 /* LoginView.swift in Sources */,
 				25D3F8422773FBDD00CAAD31 /* SetupIdentityVM.swift in Sources */,
+				25D1515F278D130300972489 /* LoginRequest.swift in Sources */,
 				259C5B1E275A1E07005E9288 /* UINavigationControllerDelegate+Extension.swift in Sources */,
 				257F0CBF27853850003B18E6 /* CustomCell.swift in Sources */,
 				25608545278A9AAC00CE5056 /* DontView.swift in Sources */,
@@ -415,6 +453,8 @@
 				25499F4727781E1B006F8062 /* MainView.swift in Sources */,
 				25BEE11F278936D0008A3691 /* MainIdentityRow.swift in Sources */,
 				252BB4E8276B76DB002D50A5 /* RegistraionVM.swift in Sources */,
+				25D15165278D33D800972489 /* LoginDetailViewModel.swift in Sources */,
+				25D15163278D13CC00972489 /* LoginResponse.swift in Sources */,
 				254FB2DD277C11C00001B63F /* SelectedColor.swift in Sources */,
 				257F0CCC27853FA9003B18E6 /* MainViewVM.swift in Sources */,
 				25BEE13D278968F4008A3691 /* UpdateIdentityView.swift in Sources */,

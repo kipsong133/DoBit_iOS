@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct LoginDetailView: View {
+    let vm = LoginDetailViewModel()
     @Binding var shouldShowMainView: Bool
     @State private var email: String = ""
     @State private var password: String = ""
@@ -30,13 +32,22 @@ struct LoginDetailView: View {
     let screen = UIScreen.main.bounds
     
     /* temp method */
-    func verifyAccount(email: String, password: String) -> Bool {
-//        if email == "uno" && password == "1234" {
-//            return true
-//        } else {
-//            return false
-//        }
-        true
+    func verifyAccount(email: String, password: String, completion: @escaping (Bool) -> Void) {
+        vm.postLogin(email: email, password: password) { response, error in
+            if let isSuccess = response?.isSuccess {
+                if isSuccess {
+                    print("LoginDetailView: 로그인 성공")
+                } else {
+                    print("LoginDetailView: 로그인 실패")
+                }
+                completion(isSuccess)
+            }
+            
+            if error != nil {
+                print("LoginDetailView: 로그인 중 에러 발생")
+                completion(false)
+            }
+        }
     }
     
     var body: some View {
@@ -111,12 +122,8 @@ struct LoginDetailView: View {
                             isLeftSide: false,
                             action: {
                                 /* verify email & password */
-                                if verifyAccount(email: email, password: password) {
-                                    shouldShowMainView = true
-                                } else {
-                                    /* show alert message */
-                                    emailErrorMessage = "이메일 주소를 확인해주세요."
-                                    passwordErrorMessage = "비밀번호를 확인해주세요."
+                                verifyAccount(email: email, password: password) { loginSuccess in
+                                    shouldShowMainView = loginSuccess
                                 }
                             })
                         
