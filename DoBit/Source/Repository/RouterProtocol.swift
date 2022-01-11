@@ -1,53 +1,35 @@
 //
-//  LoginRepository.swift
+//  RouterProtocol.swift
 //  DoBit
 //
 //  Created by 김우성 on 2022/01/11.
 //
-/*
- AutoLogin은 나머지 기능 모두 구현 후, 진행할 예정
- */
 
-import Alamofire
 import Foundation
+import Alamofire
 
-enum LoginRouter: Router {
-    case login(email: String, password: String)
-    case autoLogin
-    
-    var path: String {
-        switch self {
-        case .login:
-            return "/users/login"
-        case .autoLogin:
-            return "/users/login"
-        }
-    }
-    
-    var method: HTTPMethod {
-        switch self {
-        case .login, .autoLogin:
-            return .post
-        }
-    }
-    
-    var header: HTTPHeaders {
-        return HTTPHeaders(["Content-Type" : "application/json"])
-    }
-    
-    var parameters: [String: String] {
-        switch self {
-        case let .login(email: email, password: password):
-            return ["email": email,
-                    "password": password]
-        case .autoLogin:
-            return [:]
-        }
-    }
+protocol Router: URLRequestConvertible {
+    var jwt: String? { get }
+    var baseURL: URL { get }
+    var path: String { get }
+    var header: HTTPHeaders { get }
+    var method: HTTPMethod { get }
+    var parameters: [String: String] { get }
 }
 
-// 1 URLRequestConvertible 채택
-extension LoginRouter: URLRequestConvertible {
+extension Router {
+    var jwt: String? {
+        if let token = Constant.shared.jwt {
+            return token
+        } else {
+            return nil
+        }
+    }
+    
+    var baseURL: URL {
+        URL(string: "https://lilyhome.shop")!
+    }
+    
     func asURLRequest() throws -> URLRequest {
         // 2 baseURL + path
         let url = baseURL.appendingPathComponent(path)

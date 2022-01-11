@@ -14,12 +14,15 @@ struct IdentityCell: View {
 
     var body: some View {
         ZStack {
-            Color.lightBackgroundColor
+            Color.dobitBackgroundColor
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
                 HStack {
                     Text(title)
+                        .font(.system(size: 18))
+                        .foregroundColor(isChecked ? .dobitBlack : Color.textGray)
+                        .bold()
                         .padding(.leading, 20)
                         .padding(.bottom, 20)
                         .padding(.top, 5)

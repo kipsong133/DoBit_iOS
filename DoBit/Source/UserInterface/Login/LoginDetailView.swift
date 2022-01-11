@@ -9,7 +9,7 @@ import SwiftUI
 import Alamofire
 
 struct LoginDetailView: View {
-    let vm = LoginDetailViewModel()
+    let vm = LoginDetailVM()
     @Binding var shouldShowMainView: Bool
     @State private var email: String = ""
     @State private var password: String = ""
@@ -21,35 +21,8 @@ struct LoginDetailView: View {
     // Check "비밀번호 재설정" did tap
     @State var pushView = false
     
-    var isErrorInEmail: Bool {
-        emailErrorMessage.count > 2
-    }
-    
-    var isErrorInPassword: Bool {
-        passwordErrorMessage.count > 2
-    }
-    
     let screen = UIScreen.main.bounds
-    
-    /* temp method */
-    func verifyAccount(email: String, password: String, completion: @escaping (Bool) -> Void) {
-        vm.postLogin(email: email, password: password) { response, error in
-            if let isSuccess = response?.isSuccess {
-                if isSuccess {
-                    print("LoginDetailView: 로그인 성공")
-                } else {
-                    print("LoginDetailView: 로그인 실패")
-                }
-                completion(isSuccess)
-            }
-            
-            if error != nil {
-                print("LoginDetailView: 로그인 중 에러 발생")
-                completion(false)
-            }
-        }
-    }
-    
+        
     var body: some View {
         ZStack {
             /* Background color */
@@ -140,10 +113,41 @@ struct LoginDetailView: View {
     }
 }
 
+// MARK: - PreView
 struct LoginDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             LoginDetailView(shouldShowMainView: .constant(false))
+        }
+    }
+}
+
+// MARK: - After networking API
+extension LoginDetailView {
+    var isErrorInEmail: Bool {
+        emailErrorMessage.count > 2
+    }
+    
+    var isErrorInPassword: Bool {
+        passwordErrorMessage.count > 2
+    }
+    
+    /* Login button action */
+    func verifyAccount(email: String, password: String, completion: @escaping (Bool) -> Void) {
+        vm.postLogin(email: email, password: password) { response, error in
+            if let isSuccess = response?.isSuccess {
+                if isSuccess {
+                    print("LoginDetailView: 로그인 성공")
+                } else {
+                    print("LoginDetailView: 로그인 실패")
+                }
+                completion(isSuccess)
+            }
+            
+            if error != nil {
+                print("LoginDetailView: 로그인 중 에러 발생")
+                completion(false)
+            }
         }
     }
 }

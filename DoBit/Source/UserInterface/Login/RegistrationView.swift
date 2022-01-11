@@ -5,6 +5,12 @@
 //  Created by 김우성 on 2021/12/02.
 //
 
+// 22.01.11
+// TODO: Email 유효성검사 구현
+// TODO: 비밀번호 불일치 및 특정 값이 없을 시, 경고창 출력
+
+/* 이 화면에서 회원가입 API를 호출한다. */
+
 import SwiftUI
 
 struct RegistrationView: View {
@@ -12,7 +18,7 @@ struct RegistrationView: View {
     @Binding var rootIsActive: Bool
     @State var email: String = ""
     @State var password: String = ""
-    @State var rePassword: String = ""
+    @State var rePassword: String = " "
     @State var nickname: String = ""
     @Environment(\.presentationMode) var presentationMode
     
@@ -72,10 +78,17 @@ struct RegistrationView: View {
                                         vm.nickname = nickname
                                         
                                         /* Invaildation */
-                                        if vm.showNextView {
-                                            pushView = true
-                                        } else {
-                                            /* Invaildate userInfo */
+                                        vm.postRegistration { response, error in
+                                            if error != nil {
+                                                pushView = false
+                                                return
+                                            }
+                                            
+                                            if let response = response {
+                                                if response.isSuccess {
+                                                    pushView = true
+                                                }
+                                            }
                                         }
                                     })
                                     }.isDetailLink(false)

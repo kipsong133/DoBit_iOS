@@ -12,3 +12,12 @@ extension UIScreen {
    static let screenHeight = UIScreen.main.bounds.size.height
    static let screenSize = UIScreen.main.bounds.size
 }
+
+class Constant {
+    static let shared = Constant()
+    
+    var jwt: String?
+    var userIdx: Int?
+    
+    private init() { }
+}

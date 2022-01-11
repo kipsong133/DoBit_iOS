@@ -32,7 +32,7 @@ struct SetupIdentityView: View {
     var body: some View {
         
         ZStack {
-            Color.lightBackgroundColor
+            Color.dobitBackgroundColor
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
@@ -71,8 +71,7 @@ struct SetupIdentityView: View {
                 VStack {
                     TextField("원하는 목표를 적어주세요", text: $newIdentity)
                         .onSubmit {
-//                            identities.append()
-                            
+                            /* 정체성 추가 API 호출 */
                             isCheckedIndex.append(true)
                         }
                         .padding(.leading, 20)

@@ -37,7 +37,11 @@
 		25D1515F278D130300972489 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D1515E278D130300972489 /* LoginRequest.swift */; };
 		25D15161278D134000972489 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D15160278D134000972489 /* LoginRouter.swift */; };
 		25D15163278D13CC00972489 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D15162278D13CC00972489 /* LoginResponse.swift */; };
-		25D15165278D33D800972489 /* LoginDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D15164278D33D800972489 /* LoginDetailViewModel.swift */; };
+		25D15165278D33D800972489 /* LoginDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D15164278D33D800972489 /* LoginDetailVM.swift */; };
+		25D15167278D45AD00972489 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D15166278D45AD00972489 /* RouterProtocol.swift */; };
+		25D1516A278D4E7600972489 /* RegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D15169278D4E7600972489 /* RegistrationRequest.swift */; };
+		25D1516C278D4E7C00972489 /* RegistrationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D1516B278D4E7C00972489 /* RegistrationResponse.swift */; };
+		25D1516E278D4E8200972489 /* RegistrationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D1516D278D4E8200972489 /* RegistrationRouter.swift */; };
 		25D3F8422773FBDD00CAAD31 /* SetupIdentityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3F8412773FBDD00CAAD31 /* SetupIdentityVM.swift */; };
 		25E8EACC2772C92B009DF0B9 /* GlobalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E8EACB2772C92B009DF0B9 /* GlobalHelpers.swift */; };
 		25E8EACF2772C963009DF0B9 /* Identiy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E8EACE2772C963009DF0B9 /* Identiy.swift */; };
@@ -79,7 +83,11 @@
 		25D1515E278D130300972489 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		25D15160278D134000972489 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		25D15162278D13CC00972489 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
-		25D15164278D33D800972489 /* LoginDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDetailViewModel.swift; sourceTree = "<group>"; };
+		25D15164278D33D800972489 /* LoginDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDetailVM.swift; sourceTree = "<group>"; };
+		25D15166278D45AD00972489 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
+		25D15169278D4E7600972489 /* RegistrationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRequest.swift; sourceTree = "<group>"; };
+		25D1516B278D4E7C00972489 /* RegistrationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationResponse.swift; sourceTree = "<group>"; };
+		25D1516D278D4E8200972489 /* RegistrationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRouter.swift; sourceTree = "<group>"; };
 		25D3F8412773FBDD00CAAD31 /* SetupIdentityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupIdentityVM.swift; sourceTree = "<group>"; };
 		25E8EACB2772C92B009DF0B9 /* GlobalHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHelpers.swift; sourceTree = "<group>"; };
 		25E8EACE2772C963009DF0B9 /* Identiy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identiy.swift; sourceTree = "<group>"; };
@@ -104,7 +112,6 @@
 		252BB4E9276B7866002D50A5 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
-				252BB4E7276B76DB002D50A5 /* RegistraionVM.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -165,10 +172,8 @@
 				252BB4E9276B7866002D50A5 /* DataManager */,
 				2561C15527577E27006D5EF1 /* LoginView.swift */,
 				25499F43277817BA006F8062 /* LoginDetailView.swift */,
-				25D15164278D33D800972489 /* LoginDetailViewModel.swift */,
 				253FE4FD2758B5FB00050675 /* RegistrationView.swift */,
 				25F7F61C276C283D00FEE2AC /* SetupIdentityView.swift */,
-				25D3F8412773FBDD00CAAD31 /* SetupIdentityVM.swift */,
 				25CEBD9327783066000C2D7C /* ResetPasswordView.swift */,
 				25499F4827781F4A006F8062 /* AlertMessageLoginInfoView.swift */,
 				259A2AA62772C096009828B2 /* IdentityCell.swift */,
@@ -226,6 +231,7 @@
 		257F0CC727853EEA003B18E6 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				253FE4FB2758B45000050675 /* Constant.swift */,
 				257F0CC927853F6F003B18E6 /* Extension */,
 				25843BF22772B457007B160C /* CustomView */,
 				25E8EACB2772C92B009DF0B9 /* GlobalHelpers.swift */,
@@ -237,7 +243,6 @@
 		257F0CC927853F6F003B18E6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				253FE4FB2758B45000050675 /* Constant.swift */,
 				2561C15827578118006D5EF1 /* Color+Extension.swift */,
 				259C5B1D275A1E07005E9288 /* UINavigationControllerDelegate+Extension.swift */,
 				25FCE38B275DF613008E0D92 /* UIApplication+Extension.swift */,
@@ -249,6 +254,9 @@
 			isa = PBXGroup;
 			children = (
 				257F0CCB27853FA9003B18E6 /* MainViewVM.swift */,
+				25D15164278D33D800972489 /* LoginDetailVM.swift */,
+				252BB4E7276B76DB002D50A5 /* RegistraionVM.swift */,
+				25D3F8412773FBDD00CAAD31 /* SetupIdentityVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -276,6 +284,7 @@
 		25D1515B278D12DC00972489 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				25D15166278D45AD00972489 /* RouterProtocol.swift */,
 				25D1515C278D12E700972489 /* Authentication */,
 			);
 			path = Repository;
@@ -284,6 +293,7 @@
 		25D1515C278D12E700972489 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				25D15168278D4E6000972489 /* Registration */,
 				25D1515D278D12EE00972489 /* Login */,
 			);
 			path = Authentication;
@@ -297,6 +307,16 @@
 				25D15160278D134000972489 /* LoginRouter.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		25D15168278D4E6000972489 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				25D15169278D4E7600972489 /* RegistrationRequest.swift */,
+				25D1516B278D4E7C00972489 /* RegistrationResponse.swift */,
+				25D1516D278D4E8200972489 /* RegistrationRouter.swift */,
+			);
+			path = Registration;
 			sourceTree = "<group>";
 		};
 		43B232ED387089F8C6490F13 /* Frameworks */ = {
@@ -434,15 +454,18 @@
 				25D15161278D134000972489 /* LoginRouter.swift in Sources */,
 				256085272789FFCE00CE5056 /* BorderlineView.swift in Sources */,
 				2561C15627577E27006D5EF1 /* LoginView.swift in Sources */,
+				25D1516C278D4E7C00972489 /* RegistrationResponse.swift in Sources */,
 				25D3F8422773FBDD00CAAD31 /* SetupIdentityVM.swift in Sources */,
 				25D1515F278D130300972489 /* LoginRequest.swift in Sources */,
 				259C5B1E275A1E07005E9288 /* UINavigationControllerDelegate+Extension.swift in Sources */,
+				25D1516E278D4E8200972489 /* RegistrationRouter.swift in Sources */,
 				257F0CBF27853850003B18E6 /* CustomCell.swift in Sources */,
 				25608545278A9AAC00CE5056 /* DontView.swift in Sources */,
 				25BEE121278947D7008A3691 /* MainTab.swift in Sources */,
 				25F7F61D276C283D00FEE2AC /* SetupIdentityView.swift in Sources */,
 				259A2AA72772C096009828B2 /* IdentityCell.swift in Sources */,
 				25FCE38C275DF613008E0D92 /* UIApplication+Extension.swift in Sources */,
+				25D1516A278D4E7600972489 /* RegistrationRequest.swift in Sources */,
 				2561C14927577DF0006D5EF1 /* ContentView.swift in Sources */,
 				25608543278A9AA400CE5056 /* DoView.swift in Sources */,
 				25499F44277817BA006F8062 /* LoginDetailView.swift in Sources */,
@@ -453,10 +476,11 @@
 				25499F4727781E1B006F8062 /* MainView.swift in Sources */,
 				25BEE11F278936D0008A3691 /* MainIdentityRow.swift in Sources */,
 				252BB4E8276B76DB002D50A5 /* RegistraionVM.swift in Sources */,
-				25D15165278D33D800972489 /* LoginDetailViewModel.swift in Sources */,
+				25D15165278D33D800972489 /* LoginDetailVM.swift in Sources */,
 				25D15163278D13CC00972489 /* LoginResponse.swift in Sources */,
 				254FB2DD277C11C00001B63F /* SelectedColor.swift in Sources */,
 				257F0CCC27853FA9003B18E6 /* MainViewVM.swift in Sources */,
+				25D15167278D45AD00972489 /* RouterProtocol.swift in Sources */,
 				25BEE13D278968F4008A3691 /* UpdateIdentityView.swift in Sources */,
 				25CEBD9427783066000C2D7C /* ResetPasswordView.swift in Sources */,
 				25843BF42772B46C007B160C /* Background.swift in Sources */,
