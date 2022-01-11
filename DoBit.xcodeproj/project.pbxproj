@@ -17,6 +17,7 @@
 		256085272789FFCE00CE5056 /* BorderlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256085262789FFCE00CE5056 /* BorderlineView.swift */; };
 		25608543278A9AA400CE5056 /* DoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25608542278A9AA400CE5056 /* DoView.swift */; };
 		25608545278A9AAC00CE5056 /* DontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25608544278A9AAC00CE5056 /* DontView.swift */; };
+		25608547278AA89B00CE5056 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25608546278AA89B00CE5056 /* URLs.swift */; };
 		2561C14727577DF0006D5EF1 /* DoBitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561C14627577DF0006D5EF1 /* DoBitApp.swift */; };
 		2561C14927577DF0006D5EF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561C14827577DF0006D5EF1 /* ContentView.swift */; };
 		2561C14B27577DF2006D5EF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2561C14A27577DF2006D5EF1 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		256085262789FFCE00CE5056 /* BorderlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderlineView.swift; sourceTree = "<group>"; };
 		25608542278A9AA400CE5056 /* DoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoView.swift; sourceTree = "<group>"; };
 		25608544278A9AAC00CE5056 /* DontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DontView.swift; sourceTree = "<group>"; };
+		25608546278AA89B00CE5056 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		2561C14327577DF0006D5EF1 /* DoBit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoBit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2561C14627577DF0006D5EF1 /* DoBitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoBitApp.swift; sourceTree = "<group>"; };
 		2561C14827577DF0006D5EF1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				257F0CC927853F6F003B18E6 /* Extension */,
 				25843BF22772B457007B160C /* CustomView */,
 				25E8EACB2772C92B009DF0B9 /* GlobalHelpers.swift */,
+				25608546278AA89B00CE5056 /* URLs.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -274,7 +277,6 @@
 				BF86E5EA31B7BD12A1FC0898 /* Pods-DoBit.debug.xcconfig */,
 				8443BB36EBAC78023AF6849C /* Pods-DoBit.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -420,6 +422,7 @@
 				25843BF42772B46C007B160C /* Background.swift in Sources */,
 				253FE4FE2758B5FB00050675 /* RegistrationView.swift in Sources */,
 				2561C14727577DF0006D5EF1 /* DoBitApp.swift in Sources */,
+				25608547278AA89B00CE5056 /* URLs.swift in Sources */,
 				2561C15927578118006D5EF1 /* Color+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
