@@ -34,7 +34,7 @@ struct ResetPasswordView: View {
             VStack() {
                 let borderwidth = CGFloat(screen.width - 40)
                 ZStack {
-                    RegistrationTextField(value: $email, title: "이메일", borderWidth: borderwidth)
+                    RegistrationTextField(value: $email, error: .constant("미완성"), title: "이메일", borderWidth: borderwidth)
                         .padding(.bottom, 10)
                     if isErrorInEmail {
                         AlertMessageLoginInfoView(message: $emailErrorMessage)
@@ -45,7 +45,7 @@ struct ResetPasswordView: View {
                 ZStack {
                     
                     HStack {
-                        RegistrationTextField(value: $verificationCode, title: "인증번호", borderWidth: borderwidth / 2.25)
+                        RegistrationTextField(value: $verificationCode, error: .constant("미완성"), title: "인증번호", borderWidth: borderwidth / 2.25)
                             .padding(.bottom, 10)
                             
 //                            .frame(width: screen.width / 3)

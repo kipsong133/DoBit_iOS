@@ -12,7 +12,8 @@ struct DoBitApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.colorScheme, .light)
+                .environment(\.colorScheme, .light) // lightMode Only
+                .preferredColorScheme(.light) // StatusBar Text Color setting
         }
     }
 }

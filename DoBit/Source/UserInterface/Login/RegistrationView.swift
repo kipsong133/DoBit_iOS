@@ -18,9 +18,13 @@ struct RegistrationView: View {
     @Binding var rootIsActive: Bool
     @State var email: String = ""
     @State var password: String = ""
-    @State var rePassword: String = " "
+    @State var rePassword: String = ""
     @State var nickname: String = ""
     @Environment(\.presentationMode) var presentationMode
+    
+    @State private var errorMessageInEmail: String?
+    @State private var errorMessageInPassword: String?
+    @State private var errorMessageInNickname: String?
     
     // Check "다음" did tap
     @State var pushView = false
@@ -36,10 +40,32 @@ struct RegistrationView: View {
                 VStack {
                     let borderwidth = CGFloat(screenSize.width - 40)
                     
-                    RegistrationTextField(value: $email, title: "이메일", borderWidth: borderwidth)
-                    RegistrationTextField(value: $password, title: "비밀번호", borderWidth: borderwidth)
-                    RegistrationTextField(value: $rePassword, title: "비밀번호 확인", borderWidth: borderwidth)
-                    RegistrationTextField(value: $nickname, title: "닉네임", borderWidth: borderwidth)
+                    RegistrationTextField(
+                        value: $email,
+                        error: $errorMessageInEmail,
+                        title: "이메일",
+                        borderWidth: borderwidth)
+                    
+                    RegistrationTextField(
+                        value: $password,
+                        error: $errorMessageInPassword,
+                        title: "비밀번호",
+                        borderWidth: borderwidth,
+                        isSecure: true)
+                    
+                    RegistrationTextField(
+                        value: $rePassword,
+                        error: $errorMessageInPassword,
+                        title: "비밀번호 확인",
+                        borderWidth: borderwidth,
+                        isSecure: true)
+                    
+                    RegistrationTextField(
+                        value: $nickname,
+                        error: $errorMessageInNickname,
+                        title: "닉네임",
+                        borderWidth: borderwidth)
+                    
                     Spacer()
                     ProgressImageView(currentPrograssState: 1)
                     VStack {
@@ -87,6 +113,11 @@ struct RegistrationView: View {
                                             if let response = response {
                                                 if response.isSuccess {
                                                     pushView = true
+                                                } else {
+                                                    /* invaild Registration Form */
+                                                    appearInvaildMessage(
+                                                        response.code,
+                                                        response.message)
                                                 }
                                             }
                                         }
@@ -133,8 +164,10 @@ struct RegistrationTitleView: View {
 struct RegistrationTextField: View {
     
     @Binding var value: String
+    @Binding var error: String?
     var title: String
     var borderWidth: CGFloat
+    var isSecure: Bool = false
     
     var body: some View {
         VStack {
@@ -144,7 +177,12 @@ struct RegistrationTextField: View {
                 Spacer()
                     .frame(width: 21,
                            alignment: .leading)
-                TextField(title, text: $value)
+                if isSecure {
+                    SecureField(title, text: $value)
+                } else {
+                    TextField(title, text: $value)
+                }
+                
             }
             
             Color.TextFieldBottomLineColor
@@ -152,9 +190,20 @@ struct RegistrationTextField: View {
                        height: 1,
                        alignment: .leading)
             
+            if error != nil {
+                HStack {
+                    Text(error!)
+                        .font(.system(size:12))
+                        .foregroundColor(.dobitRed)
+                        .padding(.leading, 20)
+                    Spacer()
+                }
+            }
+            
         }
     }
 }
+
 
 struct ProgressImageView: View {
     
@@ -213,5 +262,38 @@ struct BottomButton: View {
             })
         }
         .foregroundColor(Color.black)
+    }
+}
+
+extension RegistrationView {
+    private func appearInvaildMessage(_ code: Int, _ message: String) {
+        errorMessageInEmail = nil
+        errorMessageInPassword = nil
+        errorMessageInNickname = nil
+        switch code {
+            /* Error in Email */
+        case 2020:
+            self.errorMessageInEmail = message
+        case 2021:
+            self.errorMessageInEmail = message
+        case 2036:
+            self.errorMessageInEmail = message
+            
+            /* Error in Password */
+        case 2035:
+            self.errorMessageInPassword = message
+        case 2031:
+            self.errorMessageInPassword = message
+        case 2033:
+            self.errorMessageInPassword = message
+            
+            /* Error in Nickname */
+        case 2034:
+            self.errorMessageInNickname = message
+            
+        default:
+            break
+        }
+
     }
 }

@@ -13,8 +13,8 @@ struct LoginDetailView: View {
     @Binding var shouldShowMainView: Bool
     @State private var email: String = ""
     @State private var password: String = ""
-    @State private var emailErrorMessage: String = ""
-    @State private var passwordErrorMessage: String = ""
+    @State private var emailErrorMessage: String?
+    @State private var passwordErrorMessage: String?
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -33,22 +33,30 @@ struct LoginDetailView: View {
                 let borderwidth = CGFloat(screen.width - 40)
                 
                 ZStack {
-                    RegistrationTextField(value: $email, title: "이메일", borderWidth: borderwidth)
+                    RegistrationTextField(
+                        value: $email,
+                        error: $emailErrorMessage,
+                        title: "이메일",
+                        borderWidth: borderwidth)
                         .padding(.bottom, 10)
-                    if isErrorInEmail {
-                        AlertMessageLoginInfoView(message: $emailErrorMessage)
-                            .offset(y: 50)
-                    }
+//                    if isErrorInEmail {
+//                        AlertMessageLoginInfoView(message: $emailErrorMessage)
+//                            .offset(y: 50)
+//                    }
                 }
                 
                 ZStack {
-                    RegistrationTextField(value: $password, title: "비밀번호", borderWidth: borderwidth)
+                    RegistrationTextField(
+                        value: $password,
+                        error: $passwordErrorMessage,
+                        title: "비밀번호",
+                        borderWidth: borderwidth)
                         .padding(.bottom, 10)
                     
-                    if isErrorInPassword {
-                        AlertMessageLoginInfoView(message: $passwordErrorMessage)
-                            .offset(y: 50)
-                    }
+//                    if isErrorInPassword {
+//                        AlertMessageLoginInfoView(message: $passwordErrorMessage)
+//                            .offset(y: 50)
+//                    }
                 }
                 NavigationLink(
                     destination: ResetPasswordView(),
@@ -124,14 +132,7 @@ struct LoginDetailView_Previews: PreviewProvider {
 
 // MARK: - After networking API
 extension LoginDetailView {
-    var isErrorInEmail: Bool {
-        emailErrorMessage.count > 2
-    }
-    
-    var isErrorInPassword: Bool {
-        passwordErrorMessage.count > 2
-    }
-    
+
     /* Login button action */
     func verifyAccount(email: String, password: String, completion: @escaping (Bool) -> Void) {
         vm.postLogin(email: email, password: password) { response, error in

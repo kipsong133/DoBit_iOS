@@ -4,9 +4,7 @@
 //
 //  Created by 김우성 on 2022/01/11.
 //
-/*
- AutoLogin은 나머지 기능 모두 구현 후, 진행할 예정
- */
+// TODO: AutoLogin 기능구현
 
 import Alamofire
 import Foundation

@@ -28,6 +28,10 @@ class RegistraionVM: ObservableObject {
             && password != nil
             && confirmPassword != nil
             && nickname != nil {
+            
+            if password == "" { return false }
+            if confirmPassword == "" { return false }
+            
             if password! == confirmPassword! {
                 return true
             }
