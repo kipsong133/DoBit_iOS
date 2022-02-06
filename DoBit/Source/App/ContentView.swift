@@ -12,7 +12,8 @@ struct ContentView: View {
     @State private var popToMainView: Bool = false
      
     var body: some View {
-        if shouldShowMainView {
+        // MARK: - 개발을 위해서 "!"을 붙임 나중에 제거할 것 22.02.06
+        if !shouldShowMainView {
             MainTab()
                 .onAppear {
                     configureAppearance()
