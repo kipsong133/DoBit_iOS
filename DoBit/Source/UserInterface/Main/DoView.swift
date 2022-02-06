@@ -11,6 +11,9 @@ struct DoView: View {
     @Environment(\.presentationMode) var mode
     
     @State var routineData = ["미라클모닝", "미라클에프터눈", "미라클이브닝"]
+    @State var environmentData = ["머리 맡에 책 두고 자기", "일어나자마자 체조하기", "21시 전에 자기"]
+    @State var nextStepData = ["책펼치기", "체조하기", "노래듣기"]
+    @State var copingFailureData = ["잠이라도 더 자기", "유튜브라도 보기", "명상하기"]
     
     let rowHeight = CGFloat(45)
     let screenSize = UIScreen.main.bounds
@@ -27,54 +30,38 @@ struct DoView: View {
         ZStack {
             backgroundColor
             ScrollView {
-                
-                
                 VStack {
-                    BorderlineView()
-                        .padding(.top, 37)
+                    Group {
+                        BorderlineView()
+                            .padding(.top, 37)
+                        // "작은 습관"
+                        miniHabit
+                            .frame(height: rowHeight)
+                        BorderlineView()
+                    }
                     
-                    // "작은 습관"
-                    miniHabit
-                        .frame(height: rowHeight)
-                    
-                    BorderlineView()
-                    
-                    // "언제, 어디서, 시작하기"
-                    whenWhereStart
-                        .frame(height: rowHeight * 3 + 10)
-                    
-                    BorderlineView()
+                    Group {
+                        // "언제, 어디서, 시작하기"
+                        whenWhereStart
+                            .frame(height: rowHeight * 3 + 10)
+                        BorderlineView()
+                    }
                     
                     // 루틴
-                    routineButton
-                        .foregroundColor(.dobitBlack)
-                        .frame(height: rowHeight)
+                    routineList
                     
-                    BorderlineView()
-                    
-                    
-                    // 루틴 list
-                    LazyVStack {
+                    // 환경
+                    environmentList
 
-                        ForEach(self.routineData.indices, id: \.self) {
-                            DoRoutineCell(
-                                rowHeight: rowHeight,
-                                cellTitle: self.routineData[$0], index: $0,
-                                routineName: self.$routineData[$0],
-                                deleteCell: {
-                                    self.routineData.remove(at: $0)
-                                })
-                        }
-                        
-                        
-                    }
-
+                    // 다음단계
+                    nextStepList
+                    
+                    // 실패대처
+                    copingFailureList
+                    
                     Spacer()
                 }
-                
             }
-            
-            
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
@@ -107,10 +94,10 @@ struct DoView: View {
 
 struct DoView_Previews: PreviewProvider {
     static var previews: some View {
-        //        NavigationView {
+                NavigationView {
         DoView()
             .previewInterfaceOrientation(.portrait)
-        //        }
+                }
     }
 }
 
@@ -207,15 +194,161 @@ extension DoView {
         }
     }
     
+    var environemntButton: some View {
+        Button(action: {
+            self.environmentData.append("새로운거\(Int.random(in: 1...10000))")
+        }) {
+            VStack {
+                HStack {
+                    Text("환경")
+                        .padding(.leading, 20)
+                    Spacer()
+                    Image(systemName: "plus")
+                        .font(.system(size: 20))
+                        .padding(.trailing, 20)
+                }
+                Spacer()
+            }
+        }
+    }
+    
+    var nextStepButton: some View {
+        Button(action: {
+            self.nextStepData.append("새로운거\(Int.random(in: 1...10000))")
+        }) {
+            VStack {
+                HStack {
+                    Text("다음 단계")
+                        .padding(.leading, 20)
+                    Spacer()
+                    Image(systemName: "plus")
+                        .font(.system(size: 20))
+                        .padding(.trailing, 20)
+                }
+                Spacer()
+            }
+        }
+    }
+    
+    var copingFailureButton: some View {
+        Button(action: {
+            self.copingFailureData.append("새로운거\(Int.random(in: 1...10000))")
+        }) {
+            VStack {
+                HStack {
+                    Text("실패 대처")
+                        .padding(.leading, 20)
+                    Spacer()
+                    Image(systemName: "plus")
+                        .font(.system(size: 20))
+                        .padding(.trailing, 20)
+                }
+                Spacer()
+            }
+        }
+    }
+    
+    var routineList: some View {
+        Group {
+            routineButton
+                .foregroundColor(.dobitBlack)
+                .frame(height: rowHeight)
+            
+            BorderlineView()
+            
+            // 루틴 list
+            LazyVStack {
+                ForEach(self.routineData.indices, id: \.self) {
+                    DoViewCell(
+                        rowHeight: rowHeight,
+                        cellTitle: self.routineData[$0], index: $0,
+                        cellDataName: self.$routineData[$0],
+                        deleteCell: {
+                            self.routineData.remove(at: $0)
+                        })
+                }
+            }
+            BorderlineView()
+        }
+    }
+    
+    var environmentList: some View {
+        Group {
+            // 환경
+            environemntButton
+                .foregroundColor(.dobitBlack)
+                .frame(height: rowHeight)
+            BorderlineView()
+            // 루틴 list
+            LazyVStack {
+                ForEach(self.environmentData.indices, id: \.self) {
+                    DoViewCell(
+                        rowHeight: rowHeight,
+                        cellTitle: self.environmentData[$0], index: $0,
+                        cellDataName: self.$environmentData[$0],
+                        deleteCell: {
+                            self.environmentData.remove(at: $0)
+                        })
+                }
+            }
+            BorderlineView()
+        }
+    }
+    
+    var nextStepList: some View {
+        Group {
+            // 환경
+            nextStepButton
+                .foregroundColor(.dobitBlack)
+                .frame(height: rowHeight)
+            BorderlineView()
+            // 루틴 list
+            LazyVStack {
+                ForEach(self.nextStepData.indices, id: \.self) {
+                    DoViewCell(
+                        rowHeight: rowHeight,
+                        cellTitle: self.nextStepData[$0], index: $0,
+                        cellDataName: self.$nextStepData[$0],
+                        deleteCell: {
+                            self.nextStepData.remove(at: $0)
+                        })
+                }
+            }
+            BorderlineView()
+        }
+    }
+    
+    var copingFailureList: some View {
+        Group {
+            // 환경
+            copingFailureButton
+                .foregroundColor(.dobitBlack)
+                .frame(height: rowHeight)
+            BorderlineView()
+            // 루틴 list
+            LazyVStack {
+                ForEach(self.copingFailureData.indices, id: \.self) {
+                    DoViewCell(
+                        rowHeight: rowHeight,
+                        cellTitle: self.copingFailureData[$0], index: $0,
+                        cellDataName: self.$copingFailureData[$0],
+                        deleteCell: {
+                            self.copingFailureData.remove(at: $0)
+                        })
+                }
+            }
+            BorderlineView()
+        }
+    }
 }
 
-struct DoRoutineCell: View {
+struct DoViewCell: View {
     
     let rowHeight: CGFloat
     let cellTitle: String
     let screenSize = UIScreen.main.bounds
     let index: Int
-    @Binding var routineName: String
+    @Binding var cellDataName: String
     
     var deleteCell: (Int) -> Void = { _ in }
     
@@ -224,9 +357,7 @@ struct DoRoutineCell: View {
             HStack {
                 Spacer()
                     .frame(width: screenSize.width * 0.3)
-//                Text(cellTitle)
-//                    .foregroundColor(.dobitBlack)
-                TextField("입력해주세요.", text: $routineName)
+                TextField("입력해주세요.", text: $cellDataName)
                     .foregroundColor(.dobitBlack)
                 
                 Spacer()
