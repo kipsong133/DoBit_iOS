@@ -42,6 +42,7 @@ class RegistraionVM: ObservableObject {
     func postRegistration(
         completion: @escaping (RegistrationResponse?, Error?) -> Void) {
         
+        // form invalidation
         guard showNextView != false else { return }
         
         AF.request(RegistrationRouter.registrationUser(

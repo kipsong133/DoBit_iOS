@@ -68,69 +68,11 @@ struct RegistrationView: View {
                     
                     Spacer()
                     ProgressImageView(currentPrograssState: 1)
-                    VStack {
-                        
-                        ZStack {
-                            // Horizontal borderline
-                            Color.black
-                                .frame(width: screenSize.width, height: 1, alignment: .center)
-                                .padding(.bottom, 79)
-                            
-                            /* Previous button */
-                            HStack {
-                                BottomButton(imageName: "leftArrow",
-                                             text: "이전",
-                                             isLeftSide: true,
-                                             action: {
-                                    self.presentationMode.wrappedValue.dismiss()
-                                })
-                                
-                                // Vertical borderline
-                                Color.black
-                                    .frame(width: 1, height: 79, alignment: .center)
-                                
-                                /* Next button */
-                                NavigationLink(
-                                    destination: SetupIdentityView(shouldPopToRootView: $rootIsActive),
-                                    isActive: $pushView) {
-                                    BottomButton(imageName: "rightArrow",
-                                                 text: "다음",
-                                                 isLeftSide: false,
-                                                 action: {
-                                        // Pass the data to data manager
-                                        vm.email = email
-                                        vm.password = password
-                                        vm.confirmPassword = rePassword
-                                        vm.nickname = nickname
-                                        
-                                        /* Invaildation */
-                                        vm.postRegistration { response, error in
-                                            if error != nil {
-                                                pushView = false
-                                                return
-                                            }
-                                            
-                                            if let response = response {
-                                                if response.isSuccess {
-                                                    pushView = true
-                                                } else {
-                                                    /* invaild Registration Form */
-                                                    appearInvaildMessage(
-                                                        response.code,
-                                                        response.message)
-                                                }
-                                            }
-                                        }
-                                    })
-                                    }.isDetailLink(false)
-                                
-                            }
-                        }
-                    }
-
+                    bottomButtons
+                    
                 }
             }.navigationTitle("회원가입")
-            .edgesIgnoringSafeArea(.bottom)
+                .edgesIgnoringSafeArea(.bottom)
         }
         .navigationBarHidden(false)
         .navigationBarBackButtonHidden(true)
@@ -266,7 +208,8 @@ struct BottomButton: View {
 }
 
 extension RegistrationView {
-    private func appearInvaildMessage(_ code: Int, _ message: String) {
+    private func appearInvaildMessage(_ code: Int,
+                                      _ message: String) {
         errorMessageInEmail = nil
         errorMessageInPassword = nil
         errorMessageInNickname = nil
@@ -294,6 +237,74 @@ extension RegistrationView {
         default:
             break
         }
+        
+    }
+}
 
+extension RegistrationView {
+    var bottomButtons: some View {
+        VStack {
+            
+            ZStack {
+                // Horizontal borderline
+                Color.black
+                    .frame(
+                        width: screenSize.width,
+                        height: 1,
+                        alignment: .center)
+                    .padding(.bottom, 79)
+                
+                /* Previous button */
+                HStack {
+                    BottomButton(imageName: "leftArrow",
+                                 text: "이전",
+                                 isLeftSide: true,
+                                 action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    })
+                    
+                    // Vertical borderline
+                    Color.black
+                        .frame(width: 1, height: 79, alignment: .center)
+                    
+                    /* Next button */
+                    NavigationLink(
+                        destination: SetupIdentityView(shouldPopToRootView: $rootIsActive),
+                        isActive: $pushView) {
+                            BottomButton(imageName: "rightArrow",
+                                         text: "다음",
+                                         isLeftSide: false,
+                                         action: {
+                                // Pass the data to data manager
+                                vm.email = email
+                                vm.password = password
+                                vm.confirmPassword = rePassword
+                                vm.nickname = nickname
+                                
+                                /* Invaildation */
+                                vm.postRegistration { response, error in
+
+                                    if error != nil {
+                                        pushView = false
+                                        return
+                                    }
+                                    
+                                    if let response = response {
+                                        if response.isSuccess {
+                                            pushView = true
+                                        } else {
+                                            /* invaild Registration Form */
+                                            appearInvaildMessage(
+                                                response.code,
+                                                response.message)
+                                        }
+                                    }
+                                }
+                            })
+                        }.isDetailLink(false)
+                    
+                }
+            }
+        }
     }
 }
