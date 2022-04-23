@@ -17,9 +17,7 @@ struct DoView: View {
     
     let rowHeight = CGFloat(45)
     let screenSize = UIScreen.main.bounds
-    var textFieldWidth: CGFloat {
-        screenSize.width * 0.7
-    }
+    var textFieldWidth: CGFloat { screenSize.width * 0.7 }
     
     @State private var habitname: String = ""
     @State private var habitWhen: String = ""
